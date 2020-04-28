@@ -8,6 +8,7 @@ import Typist from "react-typist";
 import "./style.scss";
 import plattsburghLogo from "../../images/plattsburgh-logo.jpg";
 import super8festivalsLogo from "../../images/super8festivals-logo.png";
+import { motion } from "framer-motion";
 
 library.add(fab, fas);
 
