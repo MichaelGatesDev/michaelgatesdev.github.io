@@ -21,9 +21,10 @@ section {
   // max-width: 500px;
   // padding: 1em;
   .card {
+    border: none;
     img.card-img-top {
       width: 350px;
-      height: 200px;
+      height: 125px;
       object-fit: contain;
       // padding: 2em;
     }

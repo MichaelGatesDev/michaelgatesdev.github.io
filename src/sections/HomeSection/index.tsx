@@ -182,12 +182,8 @@ const ExperienceCard = (props: {
   return (
     <div className="experience-card">
       <div className="card">
-        <img
-          src={props.logo}
-          className="card-img-top m-4"
-          alt={props.logoAlt}
-        />
-        <div className="card-body">
+        <img src={props.logo} className="card-img-top" alt={props.logoAlt} />
+        <div className="card-body m-0 p-0">
           <h5 className="card-title">{props.cardTitle}</h5>
           <p className="card-text">{props.cardDescription}</p>
           <p className="card-text">
