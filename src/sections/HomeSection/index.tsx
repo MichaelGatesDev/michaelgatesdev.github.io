@@ -46,7 +46,7 @@ const HomeSection = (): JSX.Element => {
         </div>
       </div>
       {/* Skills Row */}
-      <div className="row">
+      <div className="row justify-content-md-center">
         {/* Frontend Dev */}
         <SkillColumn
           icon="code"
@@ -67,21 +67,6 @@ Static websites and applications are cool to look at, but the real magic happens
 `}
           tools={["Node", "Omeka", "MySQL"]}
           languages={["Javascript", "Typescript", "Java", "C#", "Python"]}
-        />
-        {/* Software Dev */}
-        <SkillColumn
-          icon="compact-disc"
-          header="Software"
-          briefing={`
-I often find myself writing a 'quick tool' to automate mundane processes, but it grows and evolves into something bigger.
-From a Python script with a dozen lines to full-fledged Java application with a GUI.
-`}
-          tools={[
-            "Jetbrains suite (e.g. IntelliJ, PHPStorm, Rider)",
-            "Travis CI",
-            "MySQL",
-          ]}
-          languages={["Java", "C#", "Python"]}
         />
         {/* Game Dev */}
         <SkillColumn
@@ -125,6 +110,13 @@ Shortly after I began writing mods for Minecraft, I moved into Unity to start ha
             />
           </div>
           {/* End Card deck */}
+        </div>
+      </div>
+
+      {/* Experience header */}
+      <div className="row">
+        <div className="col">
+          <h3 className="text-center m-4">Projects</h3>
         </div>
       </div>
     </section>
