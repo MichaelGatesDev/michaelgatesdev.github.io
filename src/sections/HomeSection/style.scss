@@ -1,0 +1,31 @@
+section {
+  padding-top: 90px;
+}
+
+.greeting {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+
+  h2 {
+    font-size: 2.65em;
+    font-weight: 400;
+  }
+}
+
+.experience-card {
+  display: inline-block;
+  // width: 375px;
+  // max-width: 500px;
+  // padding: 1em;
+  .card {
+    img.card-img-top {
+      width: 350px;
+      height: 200px;
+      object-fit: contain;
+      // padding: 2em;
+    }
+  }
+}

@@ -1,12 +1,20 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { HashRouter } from "react-router-dom";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 
+import "./index.scss";
+
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <HashRouter
+  // getUserConfirmation={optionalFunc}
+  // hashType={optionalString}
+  >
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  </HashRouter>,
   document.getElementById("root")
 );
 

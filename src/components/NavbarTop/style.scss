@@ -1,0 +1,25 @@
+.NavbarTop {
+  background-color: #ffffff;
+  border-top: 0.35em solid #007bff;
+  height: 110px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 999;
+  // left: 0;
+  // right: 0;
+  .navbar-brand {
+    h1 {
+      margin: 0;
+    }
+    p {
+      font-weight: 100;
+      margin: 0;
+      padding: 0;
+    }
+  }
+  .nav-item {
+    margin: 0 0.35em;
+    font-size: 1.5em;
+  }
+}
