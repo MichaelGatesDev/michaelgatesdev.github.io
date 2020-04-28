@@ -8,6 +8,7 @@ import Typist from "react-typist";
 import "./style.scss";
 import plattsburghLogo from "../../images/plattsburgh-logo.jpg";
 import super8festivalsLogo from "../../images/super8festivals-logo.png";
+import meImg from "../../images/me.jpg";
 import { motion } from "framer-motion";
 
 library.add(fab, fas);
@@ -15,108 +16,206 @@ library.add(fab, fas);
 const HomeSection = (): JSX.Element => {
   return (
     <section id="" className="container-fluid">
-      {/* Greeting */}
-      <div className="row">
-        <div className="col">
-          <div className="greeting text-center">
-            <Typist cursor={{ show: false }}>
-              <h2 className="py-2">
-                {/* Hi  */}
-                <span>Hi there!</span>
-                <Typist.Delay ms={500} />
-                {/* Name */}
-                &nbsp;
-                <span>
-                  I&apos;m{" "}
-                  <span style={{ borderBottom: "3px solid orange" }}>
-                    Michael
+      {/* Greeting block */}
+      <div className="section-block">
+        <div className="row">
+          <div className="col">
+            <div className="greeting text-center">
+              <Typist cursor={{ show: false }}>
+                <h2 className="py-2">
+                  {/* Hi  */}
+                  <span>Hi there!</span>
+                  <Typist.Delay ms={500} />
+                  {/* Name */}
+                  &nbsp;
+                  <span>
+                    I&apos;m{" "}
+                    <span style={{ borderBottom: "3px solid orange" }}>
+                      Michael
+                    </span>
+                    .
                   </span>
-                  .
-                </span>
-              </h2>
-            </Typist>
+                </h2>
+              </Typist>
+            </div>
           </div>
         </div>
       </div>
 
-      {/* Skills Header */}
-      <div className="row">
-        <div className="col">
-          <h3 className="text-center pb-4">My Skills</h3>
+      {/* Skills Block */}
+      <div className="section-block">
+        {/* Skills Header */}
+        <div className="row">
+          <div className="col">
+            <h3 className="text-center pb-4">My Skills</h3>
+          </div>
         </div>
-      </div>
-      {/* Skills Row */}
-      <div className="row justify-content-md-center">
-        {/* Frontend Dev */}
-        <SkillColumn
-          icon="code"
-          header="Frontend"
-          briefing={`
+        {/* Skills Row */}
+        <div className="row justify-content-md-center">
+          {/* Frontend Dev */}
+          <SkillColumn
+            icon="code"
+            header="Frontend"
+            briefing={`
 When I began my first programming business in 2014, I quickly fell in love with web technologies because they are intuitive. 
 Since then, I have branched out to various engines and frameworks.
 `}
-          tools={["Node", "React", "Redux", "Zend", "jQuery"]}
-          languages={["Javascript", "Typescript", "HTML", "CSS", "SASS/SCSS"]}
-        />
-        {/* Backend Dev */}
-        <SkillColumn
-          icon="server"
-          header="Backend"
-          briefing={`
+            tools={["Node", "React", "Redux", "Zend", "jQuery"]}
+            languages={["Javascript", "Typescript", "HTML", "CSS", "SASS/SCSS"]}
+          />
+          {/* Backend Dev */}
+          <SkillColumn
+            icon="server"
+            header="Backend"
+            briefing={`
 Static websites and applications are cool to look at, but the real magic happens when connected to a strong and stable backend.
 `}
-          tools={["Node", "Omeka", "MySQL"]}
-          languages={["Javascript", "Typescript", "Java", "C#", "Python"]}
-        />
-        {/* Game Dev */}
-        <SkillColumn
-          icon="gamepad"
-          header="Games"
-          briefing={`
+            tools={["Node", "Omeka", "MySQL"]}
+            languages={["Javascript", "Typescript", "Java", "C#", "Python"]}
+          />
+          {/* Game Dev */}
+          <SkillColumn
+            icon="gamepad"
+            header="Games"
+            briefing={`
 I have had an interest for game development since I was a kid.
 Shortly after I began writing mods for Minecraft, I moved into Unity to start hacking away at my own projects.
 `}
-          tools={["Unity", "Node.js (for RESTful backend)", "MySQL", "Blender"]}
-          languages={["C#"]}
-        />
-      </div>
-
-      {/* Experience header */}
-      <div className="row">
-        <div className="col">
-          <h3 className="text-center pb-4">Professional Experience</h3>
+            tools={[
+              "Unity",
+              "Node.js (for RESTful backend)",
+              "MySQL",
+              "Blender",
+            ]}
+            languages={["C#"]}
+          />
         </div>
       </div>
-      {/* Experience */}
-      <div className="row mb-4">
-        <div className="col d-flex justify-content-center">
-          {/* Card Deck */}
-          <div className="card-deck">
-            <ExperienceCard
-              logo={super8festivalsLogo}
-              logoAlt="Super8Festivals.org"
-              cardTitle="Fullstack Developer"
-              cardDescription=""
-              cardFooter="October 2019 - Present"
-              cardUrl="https://super8festivals.org/"
-            />
-            <ExperienceCard
-              logo={plattsburghLogo}
-              logoAlt="plattsburgh.edu"
-              cardTitle="Classroom &amp; Customer Support Services"
-              cardDescription=""
-              cardFooter="August 2016 - May 2020"
-              cardUrl="https://plattsburgh.edu/"
-            />
+
+      <div className="container">
+        <div className="section-block">
+          {/* Experience header */}
+          <div className="row">
+            <div className="col">
+              <h3 className="text-center pb-4">Professional Experience</h3>
+            </div>
           </div>
-          {/* End Card deck */}
+          {/* Jumbo */}
+          <div className="row">
+            <div className="col">
+              <Job
+                jobTitle="Fullstack Developer"
+                companyName="Super 8 Festivals"
+                companyURL="https://super8festivals.org/"
+                location="Plattsburgh, NY"
+                startDate="October 2019"
+                duties={[
+                  "Build and maintain custom Omeka plugin which handles moste site functionality",
+                  "Design and implement simple but attractive frontend design using modern technologies which scale",
+                  "Minimize site bandwidth by offloading large resources (e.g. PDF) to 3rd party services",
+                  "Attend weekly meetings to review and discuss project goals and progress",
+                ]}
+              />
+              <Job
+                jobTitle="Project Manager"
+                companyName="Coding Hub"
+                companyURL="https://www.coding-hub.com/"
+                location="Plattsburgh, NY"
+                startDate="January 2019"
+                endDate="April 2020"
+                duties={[
+                  "Managed a team of 10 multi-disciplinary software engineers of ranging skillsets",
+                  "Acted as the technical project manager with overall responsibility for the management, performance and completion of new product development projects",
+                  "Developed documentation, software work plans, and kept documentation up-to-date",
+                  "Managed multiple projects simultaneously and assisted in estimating completion dates and resource allocation",
+                  "Demonstrated proficiency in decision and issue Management, Software Engineering Management, and the agile Software Engineering process",
+                  "Managed schedule, costs, quality, issue & risk management, communications, and other project management functions",
+                  "Provided day-to-day guidance and oversight of team activities; actively worked to recognize performance",
+                  "Delivered critical software release on time and under budget",
+                  "Utilized Unified Modeling Language (UML) to create requirements and preliminary design",
+                ]}
+              />
+              <Job
+                jobTitle="Classroom &amp; Customer Support Services Technician"
+                companyName="State University of New York College at Plattsburgh"
+                companyURL="https://www.plattsburgh.edu/"
+                location="Plattsburgh, NY"
+                startDate="December 2016"
+                endDate="April 2020"
+                duties={[
+                  "Responded to queries on the phone, via email, in person, or through remote access",
+                  "Offered technical assistance on the delivery, configuration, set up, maintenance, and troubleshooting of computer systems, hardware, and software.",
+                  "Trained computer and audio/video equipment users",
+                  "Training other staff on troubleshooting and diagnosing problems",
+                  "Wrote and edited training materials",
+                  "Installed computer peripherals for users",
+                  "Followed up with customers to ensure issue had been resolved",
+                  "Tracked and managed inventories via physical inspection and spreadsheets",
+                  "Routinely checked and managed all classrooms on campus equipped with audio/visual technology",
+                  "Assisted in classroom equipment installations and upgrades",
+                ]}
+              />
+              <Job
+                jobTitle="Coordinator of International Student Orientation "
+                companyName="State University of New York College at Plattsburgh"
+                companyURL="https://www.plattsburgh.edu/"
+                location="Plattsburgh, NY"
+                startDate="April 2018"
+                endDate="September 2019"
+                duties={[
+                  "Assisted in administering orientation programs for new international students entering the university",
+                  "Created and managed orientation groups which consisted of a 2:20 orientation-leader:student ratio",
+                  "Maintained accurate scheduling process and student staffing for the entirety of the orientation",
+                  "Worked with academic departments and other university offices to coordinate various informative sessions and activities",
+                  "Arranged and attended meetings with professional and student staff",
+                  "Conducted interviews with potential new staff",
+                  "Coordinated bonding and leadership activities",
+                  "Facilitated training, ice-breakers and lead team-building activities",
+                  "Served as a role model for new students by displaying the responsibility and maturity of a continuing student",
+                  "Created an inclusive and welcoming community for all new students",
+                ]}
+              />
+              <Job
+                jobTitle="Library Assistant"
+                companyName="Keene Valley Library"
+                companyURL="https://www.keenevalleylibrary.org/"
+                location="Keene Valley, NY"
+                startDate="October 2015"
+                endDate="August 2016"
+                duties={[
+                  "Assisted in the planning, organization, and coordination of library activities",
+                  "Assisted in circulation work, including preparing new materials, checking out and checking in materials, registration of patrons, shelving and maintaining collection",
+                  "Prepared displays and maintained pleasant library environment",
+                  "Kept records for circulation, library use, fines, reference, and other such records as required",
+                  "Answered phone and gave out general information about the library",
+                  "Served as stand-in IT for public access computers and other technology",
+                  "Handled and tracked patron donations",
+                  "Served as stand-in Public Relations for social media accounts",
+                ]}
+              />
+              <Job
+                jobTitle="Plugin Developer"
+                companyName="mccoding.us"
+                companyURL="https://www.mccoding.us"
+                location="Remote"
+                startDate="June 2012"
+                endDate="August 2014"
+                duties={[
+                  "Communicated and worked with clients who used Java-based plugins for Bukkit Minecraft Severs",
+                  "Wrote and ran unit tests using junit",
+                ]}
+              />
+            </div>
+          </div>
         </div>
       </div>
 
-      {/* Experience header */}
-      <div className="row">
-        <div className="col">
-          <h3 className="text-center m-4">Projects</h3>
+      <div className="section-block">
+        {/* Projects header */}
+        <div className="row">
+          <div className="col">
+            <h3 className="text-center m-4">Projects</h3>
+          </div>
         </div>
       </div>
     </section>
@@ -178,34 +277,37 @@ const SkillColumn = (props: {
   );
 };
 
-const ExperienceCard = (props: {
-  logo: string;
-  logoAlt: string;
-  cardTitle: string;
-  cardDescription: string;
-  cardFooter: string;
-  cardUrl?: string;
+const Job = (props: {
+  jobTitle: string;
+  companyName: string;
+  companyURL: string;
+  location: string;
+  startDate: string;
+  endDate?: string;
+  duties: string[];
 }): JSX.Element => {
   return (
-    <div className="experience-card">
-      <div className="card">
-        <img src={props.logo} className="card-img-top" alt={props.logoAlt} />
-        <div className="card-body m-0 p-0">
-          <h5 className="card-title">{props.cardTitle}</h5>
-          <p className="card-text">{props.cardDescription}</p>
-          <p className="card-text">
-            <small className="text-muted">{props.cardFooter}</small>
-          </p>
-        </div>
-        {props.cardUrl !== undefined && (
-          <a
-            href={props.cardUrl}
-            className="stretched-link"
-            target="_blank"
-            rel="noopener noreferrer"
-          ></a>
-        )}
-      </div>
+    <div className="jumbotron py-4">
+      <p>
+        <span style={{ fontWeight: "bold" }}>{props.jobTitle}</span> at{" "}
+        <span>
+          <a href={props.companyURL}>{props.companyName}</a>
+        </span>
+        <span className="text-muted float-right">{props.location}</span>
+      </p>
+      <p>
+        <span>
+          {props.startDate} - {props.endDate ?? "Present"}
+        </span>
+      </p>
+      <p className="mb-0">
+        <span style={{ fontWeight: "bold" }}>Responsibilities</span>
+        <ul className="m-0">
+          {props.duties.map((duty, idx) => {
+            return <li key={idx}>{duty}</li>;
+          })}
+        </ul>
+      </p>
     </div>
   );
 };
