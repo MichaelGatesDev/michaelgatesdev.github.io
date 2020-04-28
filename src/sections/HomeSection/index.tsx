@@ -241,6 +241,12 @@ Shortly after I began writing mods for Minecraft, I moved into Unity to start ha
                 projectScreenshot={ssS8}
               />
               <Project
+                projectTitle="VRU"
+                projectDescription="VRU is a crowd-sourced virtual MMO which focuses on music and player creativity. It is purely conceptional as it includes assets which remain under copyright."
+                projectTags={["unity", "blender", "c#", "mysql"]}
+                projectScreenshot={"https://i.imgur.com/2eUiRSW.png"}
+              />
+              <Project
                 projectTitle="Tutoring Hub"
                 projectDescription="Tutoring Hub is a web platform which allows students to find the best tutor for them."
                 projectTags={[
@@ -376,7 +382,7 @@ const Project = (props: {
   projectTitle: string;
   projectDescription: string;
   projectTags: string[];
-  projectSource: string;
+  projectSource?: string;
   projectDemo?: string;
   projectScreenshot: string;
 }): JSX.Element => {
@@ -386,14 +392,16 @@ const Project = (props: {
         <div className="col">
           <p style={{ fontWeight: "bold" }}>{props.projectTitle}</p>
           <p>{props.projectDescription}</p>
-          <a
-            href={props.projectSource}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="icon"
-          >
-            <FontAwesomeIcon icon={["fab", "github"]} />
-          </a>
+          {props.projectSource !== undefined && (
+            <a
+              href={props.projectSource}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="icon"
+            >
+              <FontAwesomeIcon icon={["fab", "github"]} />
+            </a>
+          )}
           <ul className="list-unstyled list-inline">
             {props.projectTags.map((tech, idx) => {
               return (
