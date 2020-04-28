@@ -2,8 +2,10 @@ import React from "react";
 import { library, IconProp } from "@fortawesome/fontawesome-svg-core";
 import { fab } from "@fortawesome/free-brands-svg-icons";
 import { fas } from "@fortawesome/free-solid-svg-icons";
-import "./style.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Typist from "react-typist";
+
+import "./style.scss";
 import plattsburghLogo from "../../images/plattsburgh-logo.jpg";
 import super8festivalsLogo from "../../images/super8festivals-logo.png";
 
@@ -16,10 +18,22 @@ const HomeSection = (): JSX.Element => {
       <div className="row">
         <div className="col">
           <div className="greeting text-center">
-            <h2 className="py-2">
-              Hi there! I&apos;m{" "}
-              <span style={{ borderBottom: "3px solid orange" }}>Michael</span>.
-            </h2>
+            <Typist cursor={{ show: false }}>
+              <h2 className="py-2">
+                {/* Hi  */}
+                <span>Hi there!</span>
+                <Typist.Delay ms={500} />
+                {/* Name */}
+                &nbsp;
+                <span>
+                  I&apos;m{" "}
+                  <span style={{ borderBottom: "3px solid orange" }}>
+                    Michael
+                  </span>
+                  .
+                </span>
+              </h2>
+            </Typist>
           </div>
         </div>
       </div>
