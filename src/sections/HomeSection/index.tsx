@@ -4,12 +4,13 @@ import { fab } from "@fortawesome/free-brands-svg-icons";
 import { fas } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Typist from "react-typist";
+import { motion } from "framer-motion";
 
 import "./style.scss";
-import plattsburghLogo from "../../images/plattsburgh-logo.jpg";
-import super8festivalsLogo from "../../images/super8festivals-logo.png";
 import meImg from "../../images/me.jpg";
-import { motion } from "framer-motion";
+import ssTutoringHub from "../../images/ss-tutoringhub.png";
+import ssCSM from "../../images/ss-csm.png";
+import ssS8 from "../../images/ss-s8.png";
 
 library.add(fab, fas);
 
@@ -92,6 +93,7 @@ Shortly after I began writing mods for Minecraft, I moved into Unity to start ha
         </div>
       </div>
 
+      {/* Professional Experience container */}
       <div className="container">
         <div className="section-block">
           {/* Experience header */}
@@ -136,8 +138,8 @@ Shortly after I began writing mods for Minecraft, I moved into Unity to start ha
                 ]}
               />
               <Job
-                jobTitle="Classroom &amp; Customer Support Services Technician"
-                companyName="State University of New York College at Plattsburgh"
+                jobTitle="Classroom Support Technician"
+                companyName="SUNY Plattsburgh"
                 companyURL="https://www.plattsburgh.edu/"
                 location="Plattsburgh, NY"
                 startDate="December 2016"
@@ -157,7 +159,7 @@ Shortly after I began writing mods for Minecraft, I moved into Unity to start ha
               />
               <Job
                 jobTitle="Coordinator of International Student Orientation "
-                companyName="State University of New York College at Plattsburgh"
+                companyName="SUNY Plattsburgh"
                 companyURL="https://www.plattsburgh.edu/"
                 location="Plattsburgh, NY"
                 startDate="April 2018"
@@ -210,11 +212,69 @@ Shortly after I began writing mods for Minecraft, I moved into Unity to start ha
         </div>
       </div>
 
-      <div className="section-block">
-        {/* Projects header */}
-        <div className="row">
-          <div className="col">
-            <h3 className="text-center m-4">Projects</h3>
+      {/* Projects block */}
+      <div className="container">
+        <div className="section-block">
+          {/* Experience header */}
+          <div className="row">
+            <div className="col">
+              <h3 className="text-center pb-4">Projects</h3>
+            </div>
+          </div>
+          {/* Jumbo */}
+          <div className="row">
+            <div className="col">
+              <Project
+                projectTitle="Super8Festivals"
+                projectDescription="Super8Festivals is a book written by Isabel Arredondo. This Omeka-based website serves supplemental material and is a resource for educational use."
+                projectTags={[
+                  "php",
+                  "omeka",
+                  "js",
+                  "jquery",
+                  "html",
+                  "css",
+                  "sass",
+                  "mysql",
+                ]}
+                projectSource="https://github.com/MichaelGatesDev/super8festivals-omeka-plugin"
+                projectScreenshot={ssS8}
+              />
+              <Project
+                projectTitle="Tutoring Hub"
+                projectDescription="Tutoring Hub is a web platform which allows students to find the best tutor for them."
+                projectTags={[
+                  "node",
+                  "yarn",
+                  "react",
+                  "express",
+                  "typescript",
+                  "monorepo",
+                  "mongodb",
+                  "scss",
+                ]}
+                projectSource="https://github.com/coding-hub-org/tutoring-hub"
+                projectScreenshot={ssTutoringHub}
+              />
+              <Project
+                projectTitle="Classroom Support Manual"
+                projectDescription="The Classroom Support Manual is a standalone application which assists in troubleshooting and training for Classroom and Customer Support Services at SUNY Plattsburgh."
+                projectTags={[
+                  "node",
+                  "yarn",
+                  "react",
+                  "express",
+                  "typescript",
+                  "monorepo",
+                  "multiplatform",
+                  "electron",
+                  "scss",
+                ]}
+                projectSource="https://github.com/MichaelGatesDev/ccss-support-manual"
+                projectDemo="https://github.com/MichaelGatesDev/ccss-support-manual/releases/latest"
+                projectScreenshot={ssCSM}
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -308,6 +368,56 @@ const Job = (props: {
           })}
         </ul>
       </p>
+    </div>
+  );
+};
+
+const Project = (props: {
+  projectTitle: string;
+  projectDescription: string;
+  projectTags: string[];
+  projectSource: string;
+  projectDemo?: string;
+  projectScreenshot: string;
+}): JSX.Element => {
+  return (
+    <div className="project jumbotron py-4">
+      <div className="row">
+        <div className="col">
+          <p style={{ fontWeight: "bold" }}>{props.projectTitle}</p>
+          <p>{props.projectDescription}</p>
+          <a
+            href={props.projectSource}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="icon"
+          >
+            <FontAwesomeIcon icon={["fab", "github"]} />
+          </a>
+          <ul className="list-unstyled list-inline">
+            {props.projectTags.map((tech, idx) => {
+              return (
+                <li key={idx} className="list-inline-item">
+                  <span className="badge badge-primary">{tech}</span>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+        <div className="col">
+          <a
+            href={props.projectScreenshot}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src={props.projectScreenshot}
+              alt="Project Screenshot"
+              className="img-fluid"
+            />
+          </a>
+        </div>
+      </div>
     </div>
   );
 };
