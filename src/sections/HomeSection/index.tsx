@@ -233,6 +233,7 @@ Shortly after I began writing mods for Minecraft, I moved into Unity to start ha
                   "mysql",
                 ]}
                 projectSource="https://github.com/MichaelGatesDev/super8festivals-omeka-plugin"
+                projectDemo="https://super8festivals.org/"
                 projectScreenshot={ssS8}
               />
               <Project
@@ -387,16 +388,32 @@ const Project = (props: {
         <div className="col">
           <p style={{ fontWeight: "bold" }}>{props.projectTitle}</p>
           <p>{props.projectDescription}</p>
-          {props.projectSource !== undefined && (
-            <a
-              href={props.projectSource}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="icon"
-            >
-              <FontAwesomeIcon icon={["fab", "github"]} />
-            </a>
-          )}
+          <ul className="list-unstyled list-inline">
+            {props.projectSource !== undefined && (
+              <li className="list-inline-item">
+                <a
+                  href={props.projectSource}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="icon"
+                >
+                  <FontAwesomeIcon icon={["fab", "github"]} />
+                </a>
+              </li>
+            )}
+            {props.projectDemo !== undefined && (
+              <li className="list-inline-item">
+                <a
+                  href={props.projectDemo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="icon"
+                >
+                  <FontAwesomeIcon icon={["fas", "globe"]} />
+                </a>
+              </li>
+            )}
+          </ul>
           <ul className="list-unstyled list-inline">
             {props.projectTags.map((tech, idx) => {
               return (
