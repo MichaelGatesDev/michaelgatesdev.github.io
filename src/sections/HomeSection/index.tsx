@@ -1,18 +1,13 @@
+import "./style.scss";
 import React from "react";
-import { library, IconProp } from "@fortawesome/fontawesome-svg-core";
-import { fab } from "@fortawesome/free-brands-svg-icons";
-import { fas } from "@fortawesome/free-solid-svg-icons";
+import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Typist from "react-typist";
-import { motion } from "framer-motion";
 
-import "./style.scss";
-import meImg from "../../images/me.jpg";
+// import meImg from "../../images/me.jpg";
 import ssTutoringHub from "../../images/ss-tutoringhub.png";
 import ssCSM from "../../images/ss-csm.png";
 import ssS8 from "../../images/ss-s8.png";
-
-library.add(fab, fas);
 
 const HomeSection = (): JSX.Element => {
   return (
