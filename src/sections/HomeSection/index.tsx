@@ -46,45 +46,166 @@ const HomeSection = (): JSX.Element => {
             <h3 className="text-center pb-4">My Skills</h3>
           </div>
         </div>
-        {/* Skills Row */}
-        <div className="row justify-content-md-center">
-          {/* Frontend Dev */}
-          <SkillColumn
-            icon="code"
-            header="Frontend"
-            briefing={`
-When I began my first programming business in 2014, I quickly fell in love with web technologies because they are intuitive. 
-Since then, I have branched out to various engines and frameworks.
-`}
-            tools={["Node", "React", "Redux", "Zend", "jQuery"]}
-            languages={["Javascript", "Typescript", "HTML", "CSS", "SASS/SCSS"]}
-          />
-          {/* Backend Dev */}
-          <SkillColumn
-            icon="server"
-            header="Backend"
-            briefing={`
-Static websites and applications are cool to look at, but the real magic happens when connected to a strong and stable backend.
-`}
-            tools={["Node", "Omeka", "MySQL"]}
-            languages={["Javascript", "Typescript", "Java", "C#", "Python"]}
-          />
-          {/* Game Dev */}
-          <SkillColumn
-            icon="gamepad"
-            header="Games"
-            briefing={`
-I have had an interest for game development since I was a kid.
-Shortly after I began writing mods for Minecraft, I moved into Unity to start hacking away at my own projects.
-`}
-            tools={[
-              "Unity",
-              "Node.js (for RESTful backend)",
-              "MySQL",
-              "Blender",
-            ]}
-            languages={["C#"]}
-          />
+        <div className="row mx-5">
+          <div className="col">
+            <h3>
+              <FontAwesomeIcon
+                icon={"paint-brush"}
+                size="1x"
+                className="mr-2"
+              />
+              Frontend Development
+            </h3>
+          </div>
+          <div className="col">
+            <h3>
+              <FontAwesomeIcon
+                icon={"paint-brush"}
+                size="1x"
+                className="mr-2"
+              />
+              Backend Development
+            </h3>
+          </div>
+          <div className="col">
+            <h3>
+              <FontAwesomeIcon
+                icon={"paint-brush"}
+                size="1x"
+                className="mr-2"
+              />
+              Game Development
+            </h3>
+          </div>
+        </div>
+        <div className="row mx-5">
+          <div className="col">
+            <p>
+              Despite most of my experience as a fullstack developer, I am
+              strongest at frontend UI and UX design. No matter how
+              well-developed the rest of a product is, what ultimately matters
+              to the client matters is usability. As a developer from multiple
+              agile teams, I believe that involving the user in regular feedback
+              is essential to product success, from design to implementation and
+              to production and testing.
+            </p>
+          </div>
+          <div className="col">
+            <p>
+              These days, backend development can be done in so many languages
+              with so many different frameworks, but I find myself circling back
+              to the same ones frequently due to extensive community support and
+              documentation.
+            </p>
+          </div>
+          <div className="col">
+            <p>
+              I have been a gamer for as long as I can remember. From Nintendo,
+              to Playstation, to Xbox, and even PC, I have played games of many
+              genres which inspired me to try and create some of my own. Through
+              incredible, free software such as Unity and Blender, I have been
+              able to strengthen my skills in game design and development. While
+              I do not consider myself an artist, I assert that I have a solid
+              understanding of the moving parts involved in the game development
+              process.
+            </p>
+          </div>
+        </div>
+        <div className="row mx-5">
+          <div className="col">
+            <h4>Tools</h4>
+            <ul>
+              <li>NodeJS</li>
+              <li>Adobe Photoshop</li>
+              <li>Adobe XD</li>
+              <li>Adobe Dreamweaver</li>
+              <li></li>
+            </ul>
+          </div>
+          <div className="col">
+            <h4>Tools</h4>
+            <ul>
+              <li>NodeJS</li>
+              <li>Postman</li>
+              <li>MySQL</li>
+              <li>SQLite</li>
+              <li>Postgres</li>
+            </ul>
+          </div>
+          <div className="col">
+            <h4>Tools</h4>
+            <ul>
+              <li>Unity</li>
+              <li>Blender</li>
+              <li>Audacity</li>
+              <li>Ultimate Unwrap 3D</li>
+              <li>Jetbrains Rider</li>
+            </ul>
+          </div>
+        </div>
+        <div className="row mx-5">
+          <div className="col">
+            <h4>Frameworks &amp; Libraries</h4>
+            <ul>
+              <li>React</li>
+              <li>Redux</li>
+              <li>Zend (3)</li>
+              <li>jQuery</li>
+              <li>Bootstrap (3, 4, 5)</li>
+            </ul>
+          </div>
+          <div className="col">
+            <h4>Frameworks &amp; Libraries</h4>
+            <ul>
+              <li>Express.js</li>
+              <li>Omeka</li>
+              <li>Django</li>
+              <li>Laravel</li>
+              <li>Spring</li>
+            </ul>
+          </div>
+          <div className="col">
+            <h4>Frameworks &amp; Libraries</h4>
+            <ul>
+              <li>Mirror Networking</li>
+              <li>Photon Unity Networking</li>
+              <li>SteamVR Unity Toolkit</li>
+              <li>TextMesh Pro</li>
+              <li>Vimeo Unity SDK</li>
+            </ul>
+          </div>
+        </div>
+        <div className="row mx-5">
+          <div className="col">
+            <h4>Languages</h4>
+            <ul>
+              <li>HTML (xhtml, html5)</li>
+              <li>Javascript</li>
+              <li>Typescript</li>
+              <li>CSS (2, 3)</li>
+              <li>SASS/SCSS/LESS</li>
+            </ul>
+          </div>
+          <div className="col">
+            <h4>Languages</h4>
+            <ul>
+              <li>Python</li>
+              <li>PHP</li>
+              <li>Typescript</li>
+              <li>Java</li>
+              <li>C#</li>
+            </ul>
+          </div>
+          <div className="col">
+            <h4>Languages</h4>
+            <ul>
+              <li>C#</li>
+              <li>Javascript</li>
+              <li>UXML, USS (Unity markup and styles)</li>
+              <li>Python</li>
+              <li>SQL</li>
+            </ul>
+          </div>
         </div>
       </div>
 
@@ -100,6 +221,21 @@ Shortly after I began writing mods for Minecraft, I moved into Unity to start ha
           {/* Jumbo */}
           <div className="row">
             <div className="col">
+              <Job
+                jobTitle="Junior Fullstack Developer"
+                companyName="Technergetics LLC"
+                companyURL="https://technergetics.com/"
+                location="Utica/Rome, NY"
+                startDate="July 2020"
+                duties={[
+                  "Participate and contribute throughout the Software Development Lifecycle (Plan, Define, Design, Build, Test, Document, Deploy) using agile principles.",
+                  "Communicate software findings, test results, and other information at technical and non-technical levels.",
+                  "Review existing systems and develop software applications, including mobile applications, with our team.",
+                  "Apply knowledge of various languages and technologies, as well as the ability to analyze and implement new tools",
+                  "Demonstrate contributions to a modern software application or mobile application",
+                  "Maintain quality and ensure responsiveness of applications, code integrity, organization, and documentation.",
+                ]}
+              />
               <Job
                 jobTitle="Fullstack Developer"
                 companyName="Super 8 Festivals"
@@ -232,15 +368,23 @@ Shortly after I began writing mods for Minecraft, I moved into Unity to start ha
                   "sass",
                   "mysql",
                 ]}
-                projectSource="https://github.com/MichaelGatesDev/super8festivals-omeka-plugin"
+                projectSource="https://github.com/Super8Festivals"
                 projectDemo="https://super8festivals.org/"
                 projectScreenshot={ssS8}
               />
               <Project
                 projectTitle="VRU"
-                projectDescription="VRU is a crowd-sourced virtual MMO which focuses on music and player creativity. It is purely conceptional as it includes assets which remain under copyright."
-                projectTags={["unity", "blender", "c#", "mysql"]}
-                projectScreenshot={"https://i.imgur.com/2eUiRSW.png"}
+                projectDescription="VRU is a Unity port of the once-famous VRMMO 'vSide' (formerly known as The PCD Lounge). All art assets are ported, modified, or completely recreated from the original game. Due to copyright concerns, this is just a proof-of-concept project."
+                projectTags={[
+                  "unity",
+                  "blender",
+                  "c#",
+                  "mysql",
+                  "mirror",
+                  "python",
+                ]}
+                projectScreenshot={"https://i.imgur.com/DDXA8S2.png"}
+                projectDemo="https://www.youtube.com/watch?v=zwuMzFyFwQs"
               />
               <Project
                 projectTitle="Tutoring Hub"
@@ -285,59 +429,6 @@ Shortly after I began writing mods for Minecraft, I moved into Unity to start ha
 };
 
 export default HomeSection;
-
-const SkillColumn = (props: {
-  icon: IconProp;
-  header: string;
-  briefing: JSX.Element | string;
-  tools: (JSX.Element | string)[];
-  languages: (JSX.Element | string)[];
-}): JSX.Element => {
-  return (
-    <div className="col-sm-12 col-md-6 col-lg-3">
-      {/* Icon */}
-      <div className="row">
-        <div className="col">
-          <p className="m-0 py-3">
-            <FontAwesomeIcon icon={props.icon} size="3x" />
-          </p>
-        </div>
-      </div>
-      {/* Header */}
-      <div className="row">
-        <div className="col">
-          <h4>{props.header}</h4>
-        </div>
-      </div>
-      {/* Briefing */}
-      <div className="row">
-        <div className="col">{props.briefing}</div>
-      </div>
-      {/* Tools */}
-      <div className="row">
-        <div className="col">
-          <h5 className="py-2">Tools</h5>
-          <ul>
-            {props.tools.map((tool, idx) => {
-              return <li key={idx}>{tool}</li>;
-            })}
-          </ul>
-        </div>
-      </div>
-      {/* Langs */}
-      <div className="row">
-        <div className="col">
-          <h5 className="py-2">Languages</h5>
-          <ul>
-            {props.languages.map((lang, idx) => {
-              return <li key={idx}>{lang}</li>;
-            })}
-          </ul>
-        </div>
-      </div>
-    </div>
-  );
-};
 
 const Job = (props: {
   jobTitle: string;
