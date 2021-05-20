@@ -4,6 +4,8 @@ import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Typist from "react-typist";
 
+import { LanguageToggle } from "../../components/LanguageToggle";
+
 // import meImg from "../../images/me.jpg";
 import ssTutoringHub from "../../images/ss-tutoringhub.png";
 import ssCSM from "../../images/ss-csm.png";
@@ -11,7 +13,8 @@ import ssS8 from "../../images/ss-s8.png";
 
 const HomeSection = (): JSX.Element => {
   return (
-    <section id="" className="container-fluid">
+    <section id="home-section" className="container-fluid">
+      <LanguageToggle />
       {/* Greeting block */}
       <div className="section-block">
         <div className="row">
@@ -39,7 +42,7 @@ const HomeSection = (): JSX.Element => {
       </div>
 
       {/* Skills Block */}
-      <div className="section-block">
+      <div className="section-block d-none d-md-block">
         {/* Skills Header */}
         <div className="row">
           <div className="col">
@@ -47,7 +50,7 @@ const HomeSection = (): JSX.Element => {
           </div>
         </div>
         <div className="row mx-5">
-          <div className="col">
+          <div className="col ">
             <h3>
               <FontAwesomeIcon
                 icon={"paint-brush"}
@@ -453,14 +456,14 @@ const Job = (props: {
           {props.startDate} - {props.endDate ?? "Present"}
         </span>
       </p>
-      <p className="mb-0">
+      <div>
         <span style={{ fontWeight: "bold" }}>Responsibilities</span>
         <ul className="m-0">
           {props.duties.map((duty, idx) => {
             return <li key={idx}>{duty}</li>;
           })}
         </ul>
-      </p>
+      </div>
     </div>
   );
 };
