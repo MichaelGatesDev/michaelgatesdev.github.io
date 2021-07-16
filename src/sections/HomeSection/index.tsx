@@ -231,12 +231,11 @@ const HomeSection = (): JSX.Element => {
                 location="Utica/Rome, NY"
                 startDate="July 2020"
                 duties={[
-                  "Participate and contribute throughout the Software Development Lifecycle (Plan, Define, Design, Build, Test, Document, Deploy) using agile principles.",
-                  "Communicate software findings, test results, and other information at technical and non-technical levels.",
-                  "Review existing systems and develop software applications, including mobile applications, with our team.",
-                  "Apply knowledge of various languages and technologies, as well as the ability to analyze and implement new tools",
-                  "Demonstrate contributions to a modern software application or mobile application",
-                  "Maintain quality and ensure responsiveness of applications, code integrity, organization, and documentation.",
+                  "Contributed to regular feature development, bug fixes, and planning on a bi-weekly sprint basis.",
+                  "Participated in all steps of the Software Development Cycle from planning to CTF & deployment using agile principles.",
+                  "Communicated software findings, test results, and other information at technical and non-technical levels.",
+                  "Improved user design and experience of existing applications.",
+                  "Regulary updated developer and user documentation.",
                 ]}
               />
               <Job
