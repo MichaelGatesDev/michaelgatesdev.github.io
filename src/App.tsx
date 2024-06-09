@@ -13,16 +13,16 @@ const strings = new LocalizedStrings<Strings>({
       name: "Michael Gates",
       about: {
         who: {
-          title: "Who I Am",
+          title: "About Me",
           body: "I am a fullstack developer, game developer and modder, and a foreign language enthusiast. I am always looking to take on the next opportunity, face new challenges, meet new people, and work diligently towards success.",
         },
         how: {
-          title: "How I Started",
-          body: "I have been a gamer for as long as I can remember. My passion for video games led me to an early start in software development, creating my first program in VB.net at age 10. In highschool, I attended CV-TEC Plattsburgh and studied Digital Art & Design where I learned the principles of digital media and web programming, as well as 3D design and animation.",
+          title: "My Origin",
+          body: "I have been a gamer for as long as I can remember. My passion for video games led me to an early start in software development, creating my first program in VB.net at age 10. In highschool, I attended CV-TEC Plattsburgh, NY and studied Digital Art & Design where I learned the principles of digital media and web programming, as well as 3D design and animation.",
         },
         why: {
           title: "My Goal",
-          body: "I aim to build and deliver software which has a positive lasting impact on its users. I also aim to connect to persons around the globe to share culture and language.",
+          body: "I aim to build and deliver software and experiences which have a positive lasting impact on its users. I also aim to connect to persons around the globe to share culture and language.",
         },
       },
     },
@@ -60,18 +60,18 @@ const strings = new LocalizedStrings<Strings>({
   } as Strings,
   "ja": {
     me: {
-      name: "マイケル・ゲーツ",
+      name: "マイケル・ゲイツ",
       about: {
         who: {
-          title: "どんな人ですか？",
+          title: "自己紹介",
           body: "私はフルスタックエンジニアとゲームデベロッパーと外来語オタクです。いつも次の機会を探していて、新しい挑戦を会いたいし、新しい人とも会いたいし、成功を収めるようになりたいです。",
         },
         how: {
-          title: "どこで始まった？",
-          body: "若い時からゲームをやっていて、その理由で「ソフトウェアやゲームなどを作りたいなー」と思って、８歳の時に初めてのプログラムを作りました。高校生の時、CV-TEC Plattsburghの学校に通学してコンピューターアートとかデザインとかウェブプログラミングとか3Dなどを学習しました。",
+          title: "始まり",
+          body: "若い時からゲームをやっていて、その理由で「ソフトウェアやゲームなどを作りたいなー」と思って、8歳の時に初めてのプログラムを作りました。高校生の時、CV-TEC Plattsburghの学校に通学してコンピューターアートとかデザインとかウェブプログラミングとか3Dなどを学習しました。",
         },
         why: {
-          title: "目的",
+          title: "目標",
           body: "使われるためソフトを作りたいです。色々の国に旅行して文化や国語も勉強したいです。",
         },
       },
@@ -80,14 +80,14 @@ const strings = new LocalizedStrings<Strings>({
       primary: {
         home: "ホーム",
         about: "自己紹介",
-        skills: "技術",
+        skills: "経験",
         portfolio: "ポートフォリオ",
-        contact: "ご連絡",
+        contact: "連絡先",
         resume: "履歴書"
       },
     },
     skills: {
-      generalEngineering: "デベロッパー",
+      generalEngineering: "エンジニア",
       frontend: "フロントエンド",
       backend: "バックエンド",
       game: "ゲーム",
@@ -116,7 +116,7 @@ const skillsGeneralEngineering = ["Jira", "Confluence", "YouTrack", "GitLab", "G
 const skillsGameDev = ["Unity", "Unreal Engine", "C#", "C++", "Blender", "Audacity", "Ultimate Unwrap 3D", "Networking"];
 const skillsDesign = ["Adobe Photoshop", "Adobe Lightroom Classic", "Adobe Premiere Pro", "Adobe Illustrator", "Adobe XD", "Sony Vegas", "OBS Studio", "Photography", "Videography"];
 const skillsGeneral = ["Leadership", "Course Instruction", "Social Media", "Translation", "Interpretation", "Transcription", "Audio/Visual", "Computer Hardware",];
-const skillsLanguages = ["English (native)", "Japanese (JLPT ~N2-N3)", "Spanish (elementary)", "Korean (elementary)"];
+const skillsLanguages = ["English (native)", "Japanese (JLPT N2)", "Spanish (elementary)", "Korean (elementary)"];
 
 function App() {
   const { language, } = useLanguageContext();
@@ -167,7 +167,7 @@ function App() {
       description: "VRU is an Unreal Engine remake of the once-famous VRMMO 'vSide' (formerly known as The PCD Lounge).",
       preview: process.env.PUBLIC_URL + '/images/project-vru-ue.png',
       source: undefined,
-      demo: "https://cdn.discordapp.com/attachments/680925288963899442/967589333668364298/UnrealEditor_iYFyJY3uAk.mp4",
+      demo: "https://www.youtube.com/watch?v=B6eXKCLvZ2c",
     },
     {
       title: "VRU (Unity)",
