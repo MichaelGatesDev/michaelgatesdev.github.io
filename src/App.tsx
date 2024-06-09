@@ -382,7 +382,7 @@ function App() {
   return (
     <div className="App min-h-screen flex flex-col">
 
-      <header className="sticky top-0 bg-white z-10 shadow-md">
+      <header className="sticky top-0 bg-white z-10 shadow-md z-50">
         <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 lg:px-8" aria-label="Global">
           <div className="flex-1">
             <a href="#" className="p-1.5">
