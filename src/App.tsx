@@ -376,7 +376,7 @@ function App() {
   );
 
   const video = (video: Video) => (
-    <iframe width="400" height="250" src={video.url}></iframe>
+    <iframe width="500" height="400" src={video.url} className="w-full h-[400px]"></iframe>
   );
 
   return (
