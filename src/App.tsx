@@ -4,6 +4,7 @@ import LocalizedStrings from 'react-localization';
 import './App.css';
 import LanguageSelector from './components/LanguageSelector';
 import { useLanguageContext } from './contexts/LanguageContext';
+import PhotoGallery from './components/PhotoGallery';
 
 
 
@@ -205,19 +206,7 @@ function App() {
       photos: [
         {
           title: "",
-          url: process.env.PUBLIC_URL + '/images/photos/concert/20180429-IMG_7632 (Small).jpg',
-        },
-        {
-          title: "",
-          url: process.env.PUBLIC_URL + '/images/photos/concert/20180429-IMG_7669 (Small).jpg',
-        },
-        {
-          title: "",
-          url: process.env.PUBLIC_URL + '/images/photos/concert/20180704-IMG_0524 (Small).jpg',
-        },
-        {
-          title: "",
-          url: process.env.PUBLIC_URL + '/images/photos/concert/20180705-IMG_1322 (Small).jpg',
+          url: process.env.PUBLIC_URL + '/images/photos/concert/20240523-DSC09376 (Small).jpg',
         },
         {
           title: "",
@@ -231,14 +220,6 @@ function App() {
           title: "",
           url: process.env.PUBLIC_URL + '/images/photos/concert/20180707-IMG_2715 (Small).jpg',
         },
-        {
-          title: "",
-          url: process.env.PUBLIC_URL + '/images/photos/concert/20180907-IMG_3832 (Small).jpg',
-        },
-        {
-          title: "",
-          url: process.env.PUBLIC_URL + '/images/photos/concert/20221201-DSC04340 (Small).jpg',
-        },
       ],
     },
     {
@@ -250,19 +231,15 @@ function App() {
         },
         {
           title: "",
-          url: process.env.PUBLIC_URL + '/images/photos/portrait/20180513-IMG_8163 (Small).jpg',
-        },
-        {
-          title: "",
-          url: process.env.PUBLIC_URL + '/images/photos/portrait/20180513-IMG_8193 (Small).jpg',
-        },
-        {
-          title: "",
           url: process.env.PUBLIC_URL + '/images/photos/portrait/20180513-IMG_8397 (Small).jpg',
         },
         {
           title: "",
           url: process.env.PUBLIC_URL + '/images/photos/portrait/20190212-IMG_7303 (Small).jpg',
+        },
+        {
+          title: "",
+          url: process.env.PUBLIC_URL + '/images/photos/portrait/20240301-DSC07038 (Small).jpg',
         },
       ],
     },
@@ -275,23 +252,15 @@ function App() {
         },
         {
           title: "",
-          url: process.env.PUBLIC_URL + '/images/photos/street/20181123-IMG_5906 (Small).jpg',
-        },
-        {
-          title: "",
-          url: process.env.PUBLIC_URL + '/images/photos/street/20181123-IMG_5933 (Small).jpg',
-        },
-        {
-          title: "",
           url: process.env.PUBLIC_URL + '/images/photos/street/DSC00170 (Small).jpg',
         },
         {
           title: "",
-          url: process.env.PUBLIC_URL + '/images/photos/street/20180429-IMG_7839 (Small).jpg',
+          url: process.env.PUBLIC_URL + '/images/photos/street/20240315-DSC07092 (Small).jpg',
         },
         {
           title: "",
-          url: process.env.PUBLIC_URL + '/images/photos/street/20180421-IMG_6782 (Small).jpg',
+          url: process.env.PUBLIC_URL + '/images/photos/street/20240428-DSC07845 (Small).jpg',
         },
       ],
     },
@@ -308,31 +277,11 @@ function App() {
         },
         {
           title: "",
-          url: process.env.PUBLIC_URL + '/images/photos/travel/20191222-IMG_2304 (Small).jpg',
-        },
-        {
-          title: "",
-          url: process.env.PUBLIC_URL + '/images/photos/travel/20191219-IMG_2070 (Small).jpg',
-        },
-        {
-          title: "",
-          url: process.env.PUBLIC_URL + '/images/photos/travel/20191219-IMG_2003 (Small).jpg',
-        },
-        {
-          title: "",
-          url: process.env.PUBLIC_URL + '/images/photos/travel/20191218-IMG_1949 (Small).jpg',
-        },
-        {
-          title: "",
           url: process.env.PUBLIC_URL + '/images/photos/travel/20191218-IMG_1802 (Small).jpg',
         },
         {
           title: "",
-          url: process.env.PUBLIC_URL + '/images/photos/travel/20221114-DSC03827 (Small).jpg',
-        },
-        {
-          title: "",
-          url: process.env.PUBLIC_URL + '/images/photos/travel/20191216-IMG_1725 (Small).jpg',
+          url: process.env.PUBLIC_URL + '/images/photos/travel/20240401-DSC07740 (Small).jpg',
         },
       ],
     },
@@ -491,7 +440,6 @@ function App() {
           </div>
         ))}
 
-
         {section("skills", strings.navigation.primary.skills, (
           skills.map((skill) => (
             <div className="grid grid-cols-1 gap-2 mb-10" key={skill.subref}>
@@ -521,16 +469,20 @@ function App() {
               <h3 className="font-bold pb-2 text-2xl mb-4">
                 {strings.portfolio.photography.title}
               </h3>
-              {photoSections.map((section) => (
-                <div className='mb-4'>
-                  <h4 className="font-bold pb-2 text-xl mb-2">
-                    {section.title}
-                  </h4>
-                  <div className="flex flex-row flex-wrap gap-4">
-                    {section.photos.map(photo)}
+              <div className='grid lg:grid-cols-1 xl:grid-cols-2 gap-10'>
+                {photoSections.map((section) => (
+                  <div className='mb-4'>
+                    <h4 className="font-bold pb-2 text-xl mb-2">
+                      {section.title}
+                    </h4>
+                    <PhotoGallery
+                      photos={
+                        section.photos.map((photo) => ({ src: photo.url, alt: photo.title, }))
+                      }
+                    />
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
 
             <div className='mb-10'>
