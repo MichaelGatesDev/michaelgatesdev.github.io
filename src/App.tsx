@@ -322,7 +322,7 @@ function App() {
     { title: strings.navigation.primary.skills, href: "#skills" },
     { title: strings.navigation.primary.portfolio, href: "#portfolio" },
     { title: strings.navigation.primary.contact, href: "#contact" },
-    { title: strings.navigation.primary.resume, href: "https://drive.google.com/file/d/1YfOHZfo5jC9qUGb_KuvjZhS2zibUklME/view?usp=sharing" },
+    { title: strings.navigation.primary.resume, href: "https://drive.google.com/file/d/1f26YGZ4yx7CM3brDVKh5tgCGEidUaGMv/view?usp=sharing" },
   ];
 
   const section = (id: string, header: string, children: React.ReactNode,) => {
