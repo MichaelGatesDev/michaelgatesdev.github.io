@@ -42,6 +42,7 @@ const strings = new LocalizedStrings<Strings>({
       frontend: "Frontend Development",
       backend: "Backend Development",
       game: "Game Development",
+      mobile: "Mobile Development",
       art: "Art & design",
       general: "Misc",
       language: "Language",
@@ -111,10 +112,11 @@ const strings = new LocalizedStrings<Strings>({
   } as Strings,
 });
 
-const skillsFrontend = ["HTML5", "CSS3", "React", "React Native", "Tailwind", "Bootstrap",];
-const skillsBackend = ["Javascript", "Typescript", "Python", "Java", "PHP", "Node", "GraphQL", "PostgreSQL", "S3", "AI/ML", "Omeka", "Django", "Laravel", "Spring",];
+const skillsFrontend = ["HTML5", "CSS3", "React", "Tailwind", "Bootstrap",];
+const skillsBackend = ["Javascript", "Typescript", "Python", "Java", "PHP", "Kotlin", "Node", "GraphQL", "PostgreSQL", "S3", "AI/ML", "Omeka", "Django", "Laravel", "Spring Boot",];
 const skillsGeneralEngineering = ["Jira", "Confluence", "YouTrack", "GitLab", "GitHub", "BitBucket", "Docker", "CI/CD", "Unit Testing", "E2E Testing", "Figma", "UML",];
 const skillsGameDev = ["Unity", "Unreal Engine", "C#", "C++", "Blender", "Audacity", "Ultimate Unwrap 3D", "Networking"];
+const skillsMobile = ["React Native", "Expo", "Google Play", "App Store",];
 const skillsDesign = ["Adobe Photoshop", "Adobe Lightroom Classic", "Adobe Premiere Pro", "Adobe Illustrator", "Adobe XD", "Sony Vegas", "OBS Studio", "Photography", "Videography"];
 const skillsGeneral = ["Leadership", "Course Instruction", "Social Media", "Translation", "Interpretation", "Transcription", "Audio/Visual", "Computer Hardware",];
 const skillsLanguages = ["English (native)", "Japanese (JLPT N2)", "Spanish (elementary)", "Korean (elementary)"];
@@ -146,6 +148,11 @@ function App() {
       skills: skillsGameDev,
     },
     {
+      title: strings.skills.mobile,
+      subref: "mobile",
+      skills: skillsMobile,
+    },
+    {
       title: strings.skills.art,
       subref: "design",
       skills: skillsDesign,
@@ -164,22 +171,22 @@ function App() {
 
   const projects: Project[] = [
     {
-      title: "VRU (UE)",
-      description: "VRU is an Unreal Engine remake of the once-famous VRMMO 'vSide' (formerly known as The PCD Lounge).",
+      title: "ReSide (UE)",
+      description: "ReSide is an Unreal Engine remake of the once-famous VRMMO 'vSide' (formerly known as The PCD Lounge).",
       preview: process.env.PUBLIC_URL + '/images/project-vru-ue.png',
       source: undefined,
       demo: "https://www.youtube.com/watch?v=B6eXKCLvZ2c",
     },
     {
-      title: "VRU (Unity)",
-      description: "VRU is a Unity remake of the once-famous VRMMO 'vSide' (formerly known as The PCD Lounge). ",
+      title: "ReSide (Unity)",
+      description: "ReSide is a Unity remake of the once-famous VRMMO 'vSide' (formerly known as The PCD Lounge). ",
       source: undefined,
       preview: process.env.PUBLIC_URL + '/images/project-vru-unity.jpg',
       demo: "https://www.youtube.com/watch?v=sqcJ-hL9tbo",
     },
     {
-      title: "VRU Website",
-      description: "The VRU website is a remake of the once-famous VRMMO 'vSide' (formerly known as The PCD Lounge) website.",
+      title: "ReSide Website",
+      description: "The ReSide website is a remake of the once-famous VRMMO 'vSide' (formerly known as The PCD Lounge) website.",
       source: undefined,
       preview: process.env.PUBLIC_URL + '/images/project-vru-web.png',
       demo: "https://www.youtube.com/watch?v=dElNhXw_J8I",
@@ -393,7 +400,7 @@ function App() {
             {navItems.map(navItem)}
           </Popover.Group>
           <div className="flex flex-1 justify-end">
-            <LanguageSelector />
+            {/* <LanguageSelector /> */}
           </div>
         </nav>
       </header>

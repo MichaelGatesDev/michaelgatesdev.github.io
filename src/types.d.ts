@@ -66,6 +66,7 @@ interface Strings {
     frontend: string;
     backend: string;
     game: string;
+    mobile: string;
     art: string;
     general: string;
     language: string;
