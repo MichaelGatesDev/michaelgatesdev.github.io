@@ -1,0 +1,15 @@
+{
+  "short_name": "Michael Gates Portfolio",
+  "name": "Michael Gates Portfolio",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#f4f3ef",
+  "background_color": "#f4f3ef"
+}
