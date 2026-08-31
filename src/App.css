@@ -4,6 +4,7 @@
   --text: #171817;
   --muted: #656761;
   --line: #d4d3cd;
+  --surface: #e9e8e3;
   --accent: #2357d8;
   --panel-background: #171817;
   --panel-text: #f4f3ef;
@@ -18,6 +19,7 @@
   --text: #efeee9;
   --muted: #aaa9a3;
   --line: #343631;
+  --surface: #1b1d1b;
   --accent: #82a4ff;
   --panel-background: #efeee9;
   --panel-text: #171817;
@@ -267,6 +269,75 @@ main > section:not(.hero) {
   margin: 0;
   color: var(--muted);
   font-size: 0.9rem;
+}
+
+.mobile-project {
+  display: grid;
+  grid-template-columns: minmax(200px, 0.72fr) minmax(0, 1.28fr);
+  align-items: start;
+  gap: 3.5rem;
+}
+
+.project-kicker {
+  margin: 0 0 1.25rem;
+  color: var(--accent);
+  font-size: 0.72rem;
+  font-weight: 750;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.mobile-project h3 {
+  margin: 0 0 1rem;
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  font-weight: 550;
+  letter-spacing: -0.045em;
+  line-height: 1;
+}
+
+.project-description {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.project-features {
+  margin: 2rem 0 0;
+  padding: 0;
+  border-top: 1px solid var(--line);
+  list-style: none;
+}
+
+.project-features li {
+  padding: 0.85rem 0;
+  border-bottom: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.app-screenshots {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.app-screenshots figure {
+  margin: 0;
+}
+
+.app-screenshots img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--surface);
+}
+
+.app-screenshots figcaption {
+  margin-top: 0.75rem;
+  color: var(--muted);
+  font-size: 0.72rem;
 }
 
 .timeline {
@@ -530,7 +601,8 @@ footer {
   }
 
   .focus-grid,
-  .skill-groups {
+  .skill-groups,
+  .mobile-project {
     grid-template-columns: 1fr;
     gap: 2.25rem;
   }
@@ -541,6 +613,14 @@ footer {
 
   .focus-item h3 {
     margin-top: 1.5rem;
+  }
+
+  .mobile-project {
+    gap: 2.5rem;
+  }
+
+  .mobile-project-copy {
+    max-width: 620px;
   }
 
   .contact-panel {
@@ -584,6 +664,14 @@ footer {
 
   .contact-actions a {
     flex: 1;
+  }
+
+  .app-screenshots {
+    gap: 0.75rem;
+  }
+
+  .app-screenshots img {
+    border-radius: 12px;
   }
 }
 

@@ -13,6 +13,7 @@ const copy = {
     nav: {
       experience: "Experience",
       expertise: "Expertise",
+      mobileApps: "Mobile Apps",
       contact: "Contact",
       resume: "Resume",
       label: "Primary navigation",
@@ -28,6 +29,7 @@ const copy = {
     languages: "English (native) / Japanese (JLPT N2)",
     sections: {
       gameDevelopment: "Game Development",
+      mobileApps: "Mobile Apps",
       experience: "Experience",
       expertise: "Technical Expertise",
       education: "Education",
@@ -50,6 +52,22 @@ const copy = {
           "Automated testing, CI/CD, security remediation, and maintainable technical documentation.",
       },
     ],
+    chariChizu: {
+      platform: "Android / Personal Project",
+      description:
+        "Chari Chizu helps cyclists find legal bike parking around Tokyo and understand where bicycle parking is prohibited.",
+      features: [
+        "Browse official parking locations and practical details on an interactive map.",
+        "Filter locations by cost, favorites, and current opening status.",
+        "Review prohibited areas alongside guidance from Tokyo wards.",
+      ],
+      parkingView: "Legal parking locations",
+      parkingAlt:
+        "Chari Chizu map showing a bicycle parking location near Yurakucho Station",
+      bannedView: "Prohibited parking guidance",
+      bannedAlt:
+        "Chari Chizu map showing a prohibited bicycle parking area in Arakawa City",
+    },
     current: "Jun 2024 - Present",
     softGearRole: "Full-stack Developer / Tokyo",
     softGearPoints: [
@@ -100,6 +118,7 @@ const copy = {
     nav: {
       experience: "職歴",
       expertise: "専門分野",
+      mobileApps: "モバイルアプリ",
       contact: "お問い合わせ",
       resume: "履歴書",
       label: "メインナビゲーション",
@@ -115,6 +134,7 @@ const copy = {
     languages: "英語（ネイティブ）/ 日本語（JLPT N2）",
     sections: {
       gameDevelopment: "ゲーム開発",
+      mobileApps: "モバイルアプリ",
       experience: "職歴",
       expertise: "技術スキル",
       education: "学歴",
@@ -137,6 +157,20 @@ const copy = {
           "自動テスト、CI/CD、脆弱性対応、保守性の高い技術ドキュメントを重視。",
       },
     ],
+    chariChizu: {
+      platform: "Android / 個人プロジェクト",
+      description:
+        "Chari Chizuは、東京で合法的に駐輪できる場所を探し、駐輪禁止区域の案内を確認できるAndroidアプリです。",
+      features: [
+        "公式の駐輪場と利用情報をインタラクティブな地図で確認できます。",
+        "料金、お気に入り、営業時間で駐輪場を絞り込めます。",
+        "駐輪禁止区域と東京都内の各区が提供する案内を確認できます。",
+      ],
+      parkingView: "駐輪可能な場所",
+      parkingAlt: "有楽町駅付近の駐輪場を表示するChari Chizuの地図",
+      bannedView: "駐輪禁止区域の案内",
+      bannedAlt: "荒川区の駐輪禁止区域を表示するChari Chizuの地図",
+    },
     current: "2024年6月 - 現在",
     softGearRole: "フルスタック開発者 / 東京",
     softGearPoints: [
@@ -238,6 +272,7 @@ function App() {
           </a>
           <div className="nav-actions">
             <div className="nav-links">
+              <a href="#mobile-apps">{text.nav.mobileApps}</a>
               <a href="#experience">{text.nav.experience}</a>
               <a href="#expertise">{text.nav.expertise}</a>
               <a href="#contact">{text.nav.contact}</a>
@@ -334,6 +369,44 @@ function App() {
                 </article>
               ))}
             </div>
+          </div>
+        </section>
+
+        <section id="mobile-apps">
+          <div className="section-grid container">
+            <h2 className="section-title">{text.sections.mobileApps}</h2>
+            <article className="mobile-project">
+              <div className="mobile-project-copy">
+                <p className="project-kicker">{text.chariChizu.platform}</p>
+                <h3>Chari Chizu</h3>
+                <p className="project-description">
+                  {text.chariChizu.description}
+                </p>
+                <ul className="project-features">
+                  {text.chariChizu.features.map((feature) => (
+                    <li key={feature}>{feature}</li>
+                  ))}
+                </ul>
+              </div>
+              <div className="app-screenshots">
+                <figure>
+                  <img
+                    src={`${process.env.PUBLIC_URL}/images/chari-chizu-parking.jpg`}
+                    alt={text.chariChizu.parkingAlt}
+                    loading="lazy"
+                  />
+                  <figcaption>{text.chariChizu.parkingView}</figcaption>
+                </figure>
+                <figure>
+                  <img
+                    src={`${process.env.PUBLIC_URL}/images/chari-chizu-banned-parking.jpg`}
+                    alt={text.chariChizu.bannedAlt}
+                    loading="lazy"
+                  />
+                  <figcaption>{text.chariChizu.bannedView}</figcaption>
+                </figure>
+              </div>
+            </article>
           </div>
         </section>
 
