@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useEffect, useState } from 'react';
 
 interface LanguageContextProps {
   language: Language;
@@ -20,6 +20,23 @@ export const languages = [
   }
 ];
 
+const getInitialLanguage = () => {
+  if (typeof window === 'undefined') {
+    return languages[0];
+  }
+
+  let savedLanguage: string | null = null;
+  try {
+    savedLanguage = window.localStorage.getItem('portfolio-language');
+  } catch {
+    // Language selection still works when browser storage is unavailable.
+  }
+
+  const languageCode = savedLanguage ?? window.navigator.language;
+
+  return languageCode.startsWith('ja') ? languages[1] : languages[0];
+};
+
 export const useLanguageContext = (): LanguageContextProps => {
   const context = useContext(LanguageContext);
   if (!context) {
@@ -29,7 +46,16 @@ export const useLanguageContext = (): LanguageContextProps => {
 };
 
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [language, setLanguage] = useState<Language>(languages[0]);
+  const [language, setLanguage] = useState<Language>(getInitialLanguage);
+
+  useEffect(() => {
+    document.documentElement.lang = language.languageCode.startsWith('ja') ? 'ja' : 'en';
+    try {
+      window.localStorage.setItem('portfolio-language', language.languageCode);
+    } catch {
+      // Ignore blocked storage; the in-memory selection remains active.
+    }
+  }, [language]);
 
   const setLanguageContext = (newLanguage: Language) => {
     setLanguage(newLanguage);

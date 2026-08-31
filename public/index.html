@@ -3,11 +3,23 @@
 
 <head>
   <meta charset="utf-8" />
-  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+  <link rel="icon" href="%PUBLIC_URL%/favicon.svg" type="image/svg+xml" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#000000" />
-  <meta name="description" content="Web site created using create-react-app" />
-  <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+  <meta name="theme-color" content="#f4f3ef" />
+  <meta name="description" content="Michael Gates is a bilingual software engineer in Tokyo building games, platforms, and full-stack products." />
+  <meta property="og:title" content="Michael Gates | Software Engineer" />
+  <meta property="og:description" content="Bilingual software engineer in Tokyo specializing in online game systems, platform integration, and full-stack development." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://michaelgatesdev.github.io/" />
+  <script>
+    try {
+      const savedTheme = localStorage.getItem("portfolio-theme");
+      const theme = savedTheme || "light";
+      document.documentElement.dataset.theme = theme;
+    } catch {
+      document.documentElement.dataset.theme = "light";
+    }
+  </script>
   <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
@@ -22,7 +34,7 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-  <title>Michael Gates - Fullstack & Game Developer</title>
+  <title>Michael Gates | Software Engineer</title>
 </head>
 
 <body>

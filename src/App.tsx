@@ -1,536 +1,480 @@
-import { Popover } from '@headlessui/react';
-import { CodeBracketSquareIcon, FilmIcon } from '@heroicons/react/20/solid';
-import LocalizedStrings from 'react-localization';
-import './App.css';
-import LanguageSelector from './components/LanguageSelector';
-import { useLanguageContext } from './contexts/LanguageContext';
-import PhotoGallery from './components/PhotoGallery';
+import { useEffect, useState } from "react";
+import "./App.css";
+import {
+  languages,
+  useLanguageContext,
+} from "./contexts/LanguageContext";
 
+type Locale = "en" | "ja";
+type Theme = "light" | "dark";
 
-
-const strings = new LocalizedStrings<Strings>({
-  "en": {
-    me: {
-      name: "Michael Gates",
-      about: {
-        who: {
-          title: "About Me",
-          body: "I am a fullstack developer, game developer and modder, and a foreign language enthusiast. I am always looking to take on the next opportunity, face new challenges, meet new people, and work diligently towards success.",
-        },
-        how: {
-          title: "My Origin",
-          body: "I have been a gamer for as long as I can remember. My passion for video games led me to an early start in software development, creating my first program in VB.net at age 10. In highschool, I attended CV-TEC Plattsburgh, NY and studied Digital Art & Design where I learned the principles of digital media and web programming, as well as 3D design and animation.",
-        },
-        why: {
-          title: "My Goal",
-          body: "I aim to build and deliver software and experiences which have a positive lasting impact on its users. I also aim to connect to persons around the globe to share culture and language.",
-        },
+const copy = {
+  en: {
+    nav: {
+      experience: "Experience",
+      expertise: "Expertise",
+      contact: "Contact",
+      resume: "Resume",
+      label: "Primary navigation",
+    },
+    switchLanguage: "Switch to Japanese",
+    switchToDark: "Switch to dark mode",
+    switchToLight: "Switch to light mode",
+    skip: "Skip to content",
+    eyebrow: "Game & Full-Stack Engineer / Tokyo, Japan",
+    headline: "Online game systems for console and PC.",
+    introduction:
+      "Software engineer with 6+ years of experience building networking technology, online services, and cross-platform applications.",
+    languages: "English (native) / Japanese (JLPT N2)",
+    sections: {
+      gameDevelopment: "Game Development",
+      experience: "Experience",
+      expertise: "Technical Expertise",
+      education: "Education",
+      contact: "Contact",
+    },
+    focus: [
+      {
+        title: "Networking & Services",
+        description:
+          "Game SDKs, web servers, and backend services built for production networking.",
       },
-    },
-    navigation: {
-      primary: {
-        home: "Home",
-        about: "About",
-        skills: "Skills",
-        portfolio: "Portfolio",
-        contact: "Contact",
-        resume: "Resume",
+      {
+        title: "Platform Integration",
+        description:
+          "Online service integration for PlayStation Network and Steam across console and desktop targets.",
       },
-    },
-    skills: {
-      generalEngineering: "General Engineering",
-      frontend: "Frontend Development",
-      backend: "Backend Development",
-      game: "Game Development",
-      mobile: "Mobile Development",
-      art: "Art & design",
-      general: "Misc",
-      language: "Language",
-    },
-    portfolio: {
-      programming: "Programming",
-      photography: {
-        title: "Photography",
-        concert: "Concert",
-        portrait: "Portrait",
-        street: "Street",
-        travel: "Travel",
+      {
+        title: "Production Quality",
+        description:
+          "Automated testing, CI/CD, security remediation, and maintainable technical documentation.",
       },
-      videography: "Videography"
-    },
-    contact: "If you have any questions and/or would like to discuss my portfolio in greater detail, please contact me via one of the methods below.",
-  } as Strings,
-  "ja": {
-    me: {
-      name: "マイケル・ゲイツ",
-      about: {
-        who: {
-          title: "自己紹介",
-          body: "私はフルスタックエンジニアとゲームデベロッパーと外来語オタクです。いつも次の機会を探していて、新しい挑戦を会いたいし、新しい人とも会いたいし、成功を収めるようになりたいです。",
-        },
-        how: {
-          title: "始まり",
-          body: "若い時からゲームをやっていて、その理由で「ソフトウェアやゲームなどを作りたいなー」と思って、8歳の時に初めてのプログラムを作りました。高校生の時、CV-TEC Plattsburghの学校に通学してコンピューターアートとかデザインとかウェブプログラミングとか3Dなどを学習しました。",
-        },
-        why: {
-          title: "目標",
-          body: "使われるためソフトを作りたいです。色々の国に旅行して文化や国語も勉強したいです。",
-        },
+    ],
+    current: "Jun 2024 - Present",
+    softGearRole: "Full-stack Developer / Tokyo",
+    softGearPoints: [
+      "Develop game networking SDKs, web servers, and services using the STRIX networking framework.",
+      "Integrate online services including PlayStation Network and Steam.",
+      "Maintain automated tests and bilingual English-Japanese technical documentation.",
+    ],
+    technergeticsDates: "Jul 2020 - Sep 2023",
+    technergeticsRoles: [
+      {
+        title: "Associate Full-stack Developer",
+        dates: "May 2022 - Sep 2023",
+        points: [
+          "Built cross-platform products with React Native, Kotlin, TypeScript, and GraphQL.",
+          "Led technical delivery and introduced CI/CD with Jest, JUnit, and SonarQube.",
+        ],
       },
-    },
-    navigation: {
-      primary: {
-        home: "ホーム",
-        about: "自己紹介",
-        skills: "経験",
-        portfolio: "ポートフォリオ",
-        contact: "連絡先",
-        resume: "履歴書"
+      {
+        title: "Junior Full-stack Developer",
+        dates: "Jul 2020 - May 2022",
+        points: [
+          "Developed a large-scale Django application across its backend and frontend.",
+          "Raised test coverage above 80% and resolved security vulnerabilities for certification.",
+        ],
       },
+    ],
+    super8Dates: "Oct 2019 - Jan 2022",
+    super8Role: "Full-stack Developer / Remote",
+    super8Points: [
+      "Designed and delivered a customized Omeka platform from requirements through deployment.",
+    ],
+    programming: "Programming",
+    gameTechnology: "Game Technology",
+    platforms: "Platforms",
+    applications: "Backend & Applications",
+    delivery: "Delivery",
+    degree: "Bachelor of Science in Information Technology",
+    educationDates: "Aug 2016 - May 2020",
+    naganumaSchool: "The Naganuma School, Tokyo School of Japanese Language",
+    naganumaCourse: "Communication Japanese Course",
+    naganumaDates: "Oct 2023 - Jun 2024",
+    contactTitle: "Professional inquiries",
+    contactBody:
+      "For opportunities, collaboration, or more information about my work, contact me by email or LinkedIn.",
+    location: "Based in Tokyo, Japan",
+  },
+  ja: {
+    nav: {
+      experience: "職歴",
+      expertise: "専門分野",
+      contact: "お問い合わせ",
+      resume: "履歴書",
+      label: "メインナビゲーション",
     },
-    skills: {
-      generalEngineering: "エンジニア",
-      frontend: "フロントエンド",
-      backend: "バックエンド",
-      game: "ゲーム",
-      art: "アートとデザイン",
-      general: "いろいろ",
-      language: "言語",
+    switchLanguage: "Switch to English",
+    switchToDark: "ダークモードに切り替える",
+    switchToLight: "ライトモードに切り替える",
+    skip: "本文へ移動",
+    eyebrow: "ゲーム・フルスタックエンジニア / 東京",
+    headline: "コンソール・PC向けオンラインゲームシステム。",
+    introduction:
+      "ネットワーク技術、オンラインサービス、クロスプラットフォームアプリケーションの開発に6年以上携わるソフトウェアエンジニアです。",
+    languages: "英語（ネイティブ）/ 日本語（JLPT N2）",
+    sections: {
+      gameDevelopment: "ゲーム開発",
+      experience: "職歴",
+      expertise: "技術スキル",
+      education: "学歴",
+      contact: "お問い合わせ",
     },
-    portfolio: {
-      programming: "プログラミング",
-      photography: {
-        title: "写真撮影",
-        concert: "コンサート",
-        portrait: "横顔",
-        street: "街頭",
-        travel: "旅行",
+    focus: [
+      {
+        title: "ネットワーク・サービス",
+        description:
+          "本番環境向けのゲームSDK、Webサーバー、バックエンドサービスを開発。",
       },
-      videography: "ビデオ撮影"
-    },
-    contact: "もし質問があれば、ぜひご連絡を送ってください。"
-  } as Strings,
-});
-
-const skillsFrontend = ["HTML5", "CSS3", "React", "Tailwind", "Bootstrap",];
-const skillsBackend = ["Javascript", "Typescript", "Python", "Java", "PHP", "Kotlin", "Node", "GraphQL", "PostgreSQL", "S3", "AI/ML", "Omeka", "Django", "Laravel", "Spring Boot",];
-const skillsGeneralEngineering = ["Jira", "Confluence", "YouTrack", "GitLab", "GitHub", "BitBucket", "Docker", "CI/CD", "Unit Testing", "E2E Testing", "Figma", "UML",];
-const skillsGameDev = ["Unity", "Unreal Engine", "C#", "C++", "Blender", "Audacity", "Ultimate Unwrap 3D", "Networking"];
-const skillsMobile = ["React Native", "Expo", "Google Play", "App Store",];
-const skillsDesign = ["Adobe Photoshop", "Adobe Lightroom Classic", "Adobe Premiere Pro", "Adobe Illustrator", "Adobe XD", "Sony Vegas", "OBS Studio", "Photography", "Videography"];
-const skillsGeneral = ["Leadership", "Course Instruction", "Social Media", "Translation", "Interpretation", "Transcription", "Audio/Visual", "Computer Hardware",];
-const skillsLanguages = ["English (native)", "Japanese (JLPT N2)", "Spanish (elementary)", "Korean (elementary)"];
+      {
+        title: "プラットフォーム連携",
+        description:
+          "コンソール・デスクトップ向けのPlayStation Network、Steamオンラインサービス連携。",
+      },
+      {
+        title: "品質・運用",
+        description:
+          "自動テスト、CI/CD、脆弱性対応、保守性の高い技術ドキュメントを重視。",
+      },
+    ],
+    current: "2024年6月 - 現在",
+    softGearRole: "フルスタック開発者 / 東京",
+    softGearPoints: [
+      "STRIXネットワークフレームワークを用いたゲームSDK、Webサーバー、サービスを開発。",
+      "PlayStation Network、Steamなどのオンラインサービス連携を実装。",
+      "自動テストおよび日英の技術ドキュメントを作成・保守。",
+    ],
+    technergeticsDates: "2020年7月 - 2023年9月",
+    technergeticsRoles: [
+      {
+        title: "アソシエイト・フルスタック開発者",
+        dates: "2022年5月 - 2023年9月",
+        points: [
+          "React Native、Kotlin、TypeScript、GraphQLを用いたクロスプラットフォーム開発。",
+          "技術リードとして、Jest、JUnit、SonarQubeを用いたCI/CDを導入。",
+        ],
+      },
+      {
+        title: "ジュニア・フルスタック開発者",
+        dates: "2020年7月 - 2022年5月",
+        points: [
+          "大規模Djangoアプリケーションのバックエンド・フロントエンドを開発。",
+          "テストカバレッジ80%以上を達成し、認証取得に向けた脆弱性対応を実施。",
+        ],
+      },
+    ],
+    super8Dates: "2019年10月 - 2022年1月",
+    super8Role: "フルスタック開発者 / リモート",
+    super8Points: [
+      "Omekaをベースにしたカスタムプラットフォームを要件定義からデプロイまで一貫して担当。",
+    ],
+    programming: "プログラミング",
+    gameTechnology: "ゲーム技術",
+    platforms: "プラットフォーム",
+    applications: "バックエンド・アプリケーション",
+    delivery: "開発・運用",
+    degree: "情報技術学 理学士",
+    educationDates: "2016年8月 - 2020年5月",
+    naganumaSchool: "長沼スクール 東京日本語学校",
+    naganumaCourse: "コミュニケーション日本語コース",
+    naganumaDates: "2023年10月 - 2024年6月",
+    contactTitle: "仕事に関するお問い合わせ",
+    contactBody:
+      "採用、協業、業務内容に関するお問い合わせは、メールまたはLinkedInよりご連絡ください。",
+    location: "東京を拠点に活動",
+  },
+};
 
 function App() {
-  const { language, } = useLanguageContext();
-  strings.setLanguage(language.languageCode.split("-")[0]);
-
-
-  const skills: Skill[] = [
-    {
-      title: strings.skills.generalEngineering,
-      subref: "generaleng",
-      skills: skillsGeneralEngineering,
-    },
-    {
-      title: strings.skills.frontend,
-      subref: "frontend",
-      skills: skillsFrontend,
-    },
-    {
-      title: strings.skills.backend,
-      subref: "backend",
-      skills: skillsBackend,
-    },
-    {
-      title: strings.skills.game,
-      subref: "gamedev",
-      skills: skillsGameDev,
-    },
-    {
-      title: strings.skills.mobile,
-      subref: "mobile",
-      skills: skillsMobile,
-    },
-    {
-      title: strings.skills.art,
-      subref: "design",
-      skills: skillsDesign,
-    },
-    {
-      title: strings.skills.general,
-      subref: "general",
-      skills: skillsGeneral,
-    },
-    {
-      title: strings.skills.language,
-      subref: "languages",
-      skills: skillsLanguages,
-    },
-  ];
-
-  const projects: Project[] = [
-    {
-      title: "ReSide (UE)",
-      description: "ReSide is an Unreal Engine remake of the once-famous VRMMO 'vSide' (formerly known as The PCD Lounge).",
-      preview: process.env.PUBLIC_URL + '/images/project-vru-ue.png',
-      source: undefined,
-      demo: "https://www.youtube.com/watch?v=B6eXKCLvZ2c",
-    },
-    {
-      title: "ReSide (Unity)",
-      description: "ReSide is a Unity remake of the once-famous VRMMO 'vSide' (formerly known as The PCD Lounge). ",
-      source: undefined,
-      preview: process.env.PUBLIC_URL + '/images/project-vru-unity.jpg',
-      demo: "https://www.youtube.com/watch?v=sqcJ-hL9tbo",
-    },
-    {
-      title: "ReSide Website",
-      description: "The ReSide website is a remake of the once-famous VRMMO 'vSide' (formerly known as The PCD Lounge) website.",
-      source: undefined,
-      preview: process.env.PUBLIC_URL + '/images/project-vru-web.png',
-      demo: "https://www.youtube.com/watch?v=dElNhXw_J8I",
-    },
-    {
-      title: "Super8Festivals",
-      description: "Super8Festivals is a book written by Isabel Arredondo. This Omeka-based website serves supplemental material and is a resource for educational use.",
-      source: "https://github.com/Super8Festivals",
-      preview: process.env.PUBLIC_URL + '/images/project-s8f.png',
-      demo: "",
-    },
-    {
-      title: "Tutoring Hub",
-      description: "Tutoring Hub is a web platform which allows students to find the best tutor for them.",
-      source: "https://github.com/coding-hub-org/tutoring-hub",
-      preview: process.env.PUBLIC_URL + '/images/project-tutoring-hub.png',
-      demo: "",
-    },
-  ];
-
-  const photoSections: PhotoSection[] = [
-    {
-      title: strings.portfolio.photography.concert,
-      photos: [
-        {
-          title: "",
-          url: process.env.PUBLIC_URL + '/images/photos/concert/20240523-DSC09376 (Small).jpg',
-        },
-        {
-          title: "",
-          url: process.env.PUBLIC_URL + '/images/photos/concert/20180706-IMG_1491 (Small).jpg',
-        },
-        {
-          title: "",
-          url: process.env.PUBLIC_URL + '/images/photos/concert/20180707-IMG_2585 (Small).jpg',
-        },
-        {
-          title: "",
-          url: process.env.PUBLIC_URL + '/images/photos/concert/20180707-IMG_2715 (Small).jpg',
-        },
-      ],
-    },
-    {
-      title: strings.portfolio.photography.portrait,
-      photos: [
-        {
-          title: "",
-          url: process.env.PUBLIC_URL + '/images/photos/portrait/20180513-IMG_8140 (Small).jpg',
-        },
-        {
-          title: "",
-          url: process.env.PUBLIC_URL + '/images/photos/portrait/20180513-IMG_8397 (Small).jpg',
-        },
-        {
-          title: "",
-          url: process.env.PUBLIC_URL + '/images/photos/portrait/20190212-IMG_7303 (Small).jpg',
-        },
-        {
-          title: "",
-          url: process.env.PUBLIC_URL + '/images/photos/portrait/20240301-DSC07038 (Small).jpg',
-        },
-      ],
-    },
-    {
-      title: strings.portfolio.photography.street,
-      photos: [
-        {
-          title: "",
-          url: process.env.PUBLIC_URL + '/images/photos/street/20181123-IMG_5893 (Small).jpg',
-        },
-        {
-          title: "",
-          url: process.env.PUBLIC_URL + '/images/photos/street/DSC00170 (Small).jpg',
-        },
-        {
-          title: "",
-          url: process.env.PUBLIC_URL + '/images/photos/street/20240315-DSC07092 (Small).jpg',
-        },
-        {
-          title: "",
-          url: process.env.PUBLIC_URL + '/images/photos/street/20240428-DSC07845 (Small).jpg',
-        },
-      ],
-    },
-    {
-      title: strings.portfolio.photography.travel,
-      photos: [
-        {
-          title: "",
-          url: process.env.PUBLIC_URL + '/images/photos/travel/20221106-DSC03436 (Small).jpg',
-        },
-        {
-          title: "",
-          url: process.env.PUBLIC_URL + '/images/photos/travel/20221104-DSC03187 (Small).jpg',
-        },
-        {
-          title: "",
-          url: process.env.PUBLIC_URL + '/images/photos/travel/20191218-IMG_1802 (Small).jpg',
-        },
-        {
-          title: "",
-          url: process.env.PUBLIC_URL + '/images/photos/travel/20240401-DSC07740 (Small).jpg',
-        },
-      ],
-    },
-  ];
-
-  const videos: Video[] = [
-    { url: "https://www.youtube.com/embed/LxZ59e_ZPQ8", },
-    { url: "https://www.youtube.com/embed/llH_VwUnr9w", },
-    { url: "https://www.youtube.com/embed/-3UkdXIkekk", },
-    { url: "https://www.youtube.com/embed/0Qa3c6ins5I", },
-    { url: "https://www.youtube.com/embed/Usvlw6Zo8fY", },
-    { url: "https://www.youtube.com/embed/885joTCa3qw", },
-    { url: "https://www.youtube.com/embed/JuQmxB5vPI0", },
-    { url: "https://www.youtube.com/embed/T4OCrGO00s8", },
-    { url: "https://www.youtube.com/embed/Bpqq4khaTKs", },
-    { url: "https://www.youtube.com/embed/gzaJ5gb-4og", },
-    { url: "https://www.youtube.com/embed/CVpxg-MfJYk", },
-  ];
-
-
-
-  const navItem = (item: { title: string, href: string }) => (
-    <a href={item.href} className="text-sm font-semibold leading-6 text-gray-900" key={item.href}>
-      {item.title}
-    </a>
+  const { language, setLanguageContext } = useLanguageContext();
+  const [theme, setTheme] = useState<Theme>(() =>
+    document.documentElement.dataset.theme === "dark" ? "dark" : "light",
   );
+  const locale: Locale = language.languageCode.startsWith("ja") ? "ja" : "en";
+  const text = copy[locale];
 
-  const navItems: { title: string; href: string; }[] = [
-    // { title: strings.navigation.primary.home, href: "#home" },
-    { title: strings.navigation.primary.about, href: "#about" },
-    { title: strings.navigation.primary.skills, href: "#skills" },
-    { title: strings.navigation.primary.portfolio, href: "#portfolio" },
-    { title: strings.navigation.primary.contact, href: "#contact" },
-    { title: strings.navigation.primary.resume, href: "https://drive.google.com/file/d/1f26YGZ4yx7CM3brDVKh5tgCGEidUaGMv/view?usp=sharing" },
-  ];
+  useEffect(() => {
+    document.title =
+      locale === "ja"
+        ? "Michael Gates | ソフトウェアエンジニア"
+        : "Michael Gates | Software Engineer";
 
-  const section = (id: string, header: string, children: React.ReactNode,) => {
-
-    const sectionHeader = (text: string) => (
-      <h2 className="font-bold text-center relative pb-2 text-5xl mb-12 after:block after:w-2/3 after:h-1 after:bg-[#007bff] after:absolute after:transform after:-translate-x-1/2 after:left-1/2 after:top-14">
-        {text}
-      </h2>
+    const description = document.querySelector('meta[name="description"]');
+    description?.setAttribute(
+      "content",
+      locale === "ja"
+        ? "東京を拠点にゲーム、プラットフォーム、フルスタックプロダクトを開発するバイリンガルソフトウェアエンジニア、Michael Gatesのポートフォリオ。"
+        : "Michael Gates is a bilingual software engineer in Tokyo building games, platforms, and full-stack products.",
     );
+  }, [locale]);
 
-    return (
-      <section id={id} className='mb-20 pt-40 px-10'>
-        <div className='flex flex-col justify-center items-center'>
-          {sectionHeader(header)}
-        </div>
-        {children}
-      </section>
-    );
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme;
+    document
+      .querySelector('meta[name="theme-color"]')
+      ?.setAttribute("content", theme === "dark" ? "#111312" : "#f4f3ef");
+
+    try {
+      window.localStorage.setItem("portfolio-theme", theme);
+    } catch {
+      // Ignore blocked storage; the in-memory selection remains active.
+    }
+  }, [theme]);
+
+  const toggleLanguage = () => {
+    setLanguageContext(locale === "en" ? languages[1] : languages[0]);
   };
 
-
-
-  const skillTag = (item: any) => (
-    <li className='bg-gray-100 rounded-md px-2 py-1 hover:bg-gray-200'>
-      <span>{item}</span>
-    </li>
-  );
-
-  const project = (project: Project) => (
-    <div className="rounded-md bg-gray-100 min-w-[100px] min-h-[200px] shadow-md relative group" key={project.title}>
-      <img src={project.preview} alt={project.title} className="w-full h-full absolute object-cover rounded-tl-md rounded-tr-md group-hover:blur group-hover:brightness-50 group-hover:transition-all" />
-      <div className="relative hidden group-hover:flex flex-col justify-center items-center w-full h-full">
-        <h4 className="font-bold pb-2 text-2xl text-center text-white">
-          {project.title}
-        </h4>
-        <ul className='flex flex-row text-white'>
-          {project.source && (
-            <li>
-              <a href={project.source} target="_blank" title="Source Code">
-                <CodeBracketSquareIcon style={{ height: 40, }} />
-              </a>
-            </li>
-          )}
-          {project.demo && (
-            <li>
-              <a href={project.demo} target="_blank" title="Demonstration">
-                <FilmIcon style={{ height: 40, }} />
-              </a>
-            </li>
-          )}
-        </ul>
-      </div>
-    </div>
-  );
-
-  const photo = (photo: Photo) => (
-    <img src={photo.url} alt={photo.title} className="w-[150px] h-[150px] object-cover rounded-xl" />
-  );
-
-  const video = (video: Video) => (
-    <iframe width="500" height="400" src={video.url} className="w-full h-[400px]"></iframe>
-  );
-
   return (
-    <div className="App min-h-screen flex flex-col">
+    <div className="app">
+      <a className="skip-link" href="#main">
+        {text.skip}
+      </a>
 
-      <header className="sticky top-0 bg-white z-10 shadow-md z-50">
-        <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 lg:px-8" aria-label="Global">
-          <div className="flex-1">
-            <a href="#" className="p-1.5">
-              <h1 className='font-bold text-2xl'>{strings.me.name}</h1>
-            </a>
-          </div>
-          <Popover.Group className="flex gap-x-12">
-            {navItems.map(navItem)}
-          </Popover.Group>
-          <div className="flex flex-1 justify-end">
-            {/* <LanguageSelector /> */}
+      <header className="site-header">
+        <nav className="nav container" aria-label={text.nav.label}>
+          <a className="wordmark" href="#top">
+            Michael Gates
+          </a>
+          <div className="nav-actions">
+            <div className="nav-links">
+              <a href="#experience">{text.nav.experience}</a>
+              <a href="#expertise">{text.nav.expertise}</a>
+              <a href="#contact">{text.nav.contact}</a>
+              <a
+                href="https://drive.google.com/file/d/1f26YGZ4yx7CM3brDVKh5tgCGEidUaGMv/view?usp=sharing"
+                target="_blank"
+                rel="noreferrer"
+              >
+                {text.nav.resume}
+              </a>
+            </div>
+            <div className="nav-controls">
+              <button
+                className="theme-toggle"
+                type="button"
+                aria-label={
+                  theme === "light" ? text.switchToDark : text.switchToLight
+                }
+                onClick={() =>
+                  setTheme((currentTheme) =>
+                    currentTheme === "light" ? "dark" : "light",
+                  )
+                }
+              >
+                {theme === "light" ? (
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M20.2 15.2A8 8 0 0 1 8.8 3.8a8 8 0 1 0 11.4 11.4Z" />
+                  </svg>
+                ) : (
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <circle cx="12" cy="12" r="4" />
+                    <path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42" />
+                  </svg>
+                )}
+              </button>
+              <button
+                className="language-toggle"
+                type="button"
+                aria-label={text.switchLanguage}
+                onClick={toggleLanguage}
+              >
+                {locale === "en" ? "日本語" : "English"}
+              </button>
+            </div>
           </div>
         </nav>
       </header>
 
-      <main className='container mx-auto'>
-
-        {section("about", strings.navigation.primary.about, (
-          <div className="lg:grid lg:grid-cols-2 lg:gap-10">
-            <div className='mb-10 lg:mb-0'>
-              <img src={process.env.PUBLIC_URL + '/images/me-platts.jpg'} alt="My Image" className='w-full h-full object-contain rounded-2xl' />
-            </div>
-            <div className=''>
-              <h3 className="font-bold text-center pb-2 text-4xl mb-4">
-                {strings.me.name}
-              </h3>
-
-              <div className='mb-6'>
-                <h4 className='font-bold pb-2 text-xl'>
-                  {strings.me.about.who.title}
-                </h4>
-                <p>
-                  {strings.me.about.who.body}
-                </p>
-              </div>
-
-              <div className='mb-6'>
-                <h4 className='font-bold pb-2 text-xl'>
-                  {strings.me.about.how.title}
-                </h4>
-                <p>
-                  {strings.me.about.how.body}
-                </p>
-              </div>
-
-              <div className='mb-6'>
-                <h4 className='font-bold pb-2 text-xl'>
-                  {strings.me.about.why.title}
-                </h4>
-                <p>
-                  {strings.me.about.why.body}
-                </p>
-              </div>
-            </div>
-          </div>
-        ))}
-
-        {section("skills", strings.navigation.primary.skills, (
-          skills.map((skill) => (
-            <div className="grid grid-cols-1 gap-2 mb-10" key={skill.subref}>
-              <h3 className="font-bold pb-2 text-2xl">
-                {skill.title}
-              </h3>
-              <ul className='flex flex-row flex-wrap gap-x-4 gap-y-2'>
-                {skill.skills.map(skillTag)}
-              </ul>
-            </div>
-          ))
-        ))}
-
-
-        {section("portfolio", strings.navigation.primary.portfolio, (
-          <>
-            <div className='mb-10'>
-              <h3 className="font-bold pb-2 text-2xl mb-4">
-                Programming
-              </h3>
-              <div className='grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10 text-center'>
-                {projects.map(project)}
-              </div>
-            </div>
-
-            <div className='mb-10'>
-              <h3 className="font-bold pb-2 text-2xl mb-4">
-                {strings.portfolio.photography.title}
-              </h3>
-              <div className='grid lg:grid-cols-1 xl:grid-cols-2 gap-10'>
-                {photoSections.map((section) => (
-                  <div className='mb-4'>
-                    <h4 className="font-bold pb-2 text-xl mb-2">
-                      {section.title}
-                    </h4>
-                    <PhotoGallery
-                      photos={
-                        section.photos.map((photo) => ({ src: photo.url, alt: photo.title, }))
-                      }
-                    />
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className='mb-10'>
-              <h3 className="font-bold pb-2 text-2xl mb-4">
-                {strings.portfolio.videography}
-              </h3>
-              <div className='grid md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-10 text-center'>
-                {videos.map((video))}
-              </div>
-            </div>
-          </>
-        ))}
-
-
-        {section("contact", strings.navigation.primary.contact, (
+      <main id="main">
+        <section className="hero container" id="top">
           <div>
-            <p className='text-center mb-4'>
-              {strings.contact}
-            </p>
-            <ul className='flex flex-row justify-center gap-4'>
-              <li>
-                <a href="https://www.linkedin.com/in/michaelgatesdev/" target="_blank" title="">
-                  <i className="bi bi-linkedin text-blue-500" style={{ fontSize: 50, }}></i>
-                </a>
-              </li>
-              <li>
-                <a href="mailto:michaelgatesdev@gmail.com" target="_blank" title="">
-                  <i className="bi bi-envelope text-blue-500" style={{ fontSize: 50, }}></i>
-                </a>
-              </li>
-            </ul>
+            <p className="eyebrow">{text.eyebrow}</p>
+            <h1>{text.headline}</h1>
           </div>
-        ))}
+          <div className="hero-aside">
+            <p>{text.introduction}</p>
+            <p>{text.languages}</p>
+            <div className="contact-links">
+              <a href="mailto:michaelgatesdev@gmail.com">Email</a>
+              <a
+                href="https://www.linkedin.com/in/michaelgatesdev/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                LinkedIn
+              </a>
+              <a
+                href="https://github.com/MichaelGatesDev/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                GitHub
+              </a>
+              <a
+                href="https://drive.google.com/file/d/1f26YGZ4yx7CM3brDVKh5tgCGEidUaGMv/view?usp=sharing"
+                target="_blank"
+                rel="noreferrer"
+              >
+                {text.nav.resume}
+              </a>
+            </div>
+          </div>
+        </section>
 
+        <section id="game-development">
+          <div className="section-grid container">
+            <h2 className="section-title">{text.sections.gameDevelopment}</h2>
+            <div className="focus-grid">
+              {text.focus.map((item, index) => (
+                <article className="focus-item" key={item.title}>
+                  <span className="focus-number">0{index + 1}</span>
+                  <h3>{item.title}</h3>
+                  <p>{item.description}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="experience">
+          <div className="section-grid container">
+            <h2 className="section-title">{text.sections.experience}</h2>
+            <ol className="timeline">
+              <li className="timeline-item">
+                <div className="timeline-date">{text.current}</div>
+                <div>
+                  <h3>SOFT GEAR</h3>
+                  <p className="role">{text.softGearRole}</p>
+                  <ul className="responsibilities">
+                    {text.softGearPoints.map((point) => (
+                      <li key={point}>{point}</li>
+                    ))}
+                  </ul>
+                </div>
+              </li>
+              <li className="timeline-item">
+                <div className="timeline-date">{text.technergeticsDates}</div>
+                <div>
+                  <h3>Technergetics</h3>
+                  <div className="company-roles">
+                    {text.technergeticsRoles.map((companyRole) => (
+                      <div className="company-role" key={companyRole.title}>
+                        <div className="role-heading">
+                          <h4>{companyRole.title}</h4>
+                          <span>{companyRole.dates}</span>
+                        </div>
+                        <ul className="responsibilities">
+                          {companyRole.points.map((point) => (
+                            <li key={point}>{point}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </li>
+              <li className="timeline-item">
+                <div className="timeline-date">{text.super8Dates}</div>
+                <div>
+                  <h3>Super8Festivals</h3>
+                  <p className="role">{text.super8Role}</p>
+                  <ul className="responsibilities">
+                    {text.super8Points.map((point) => (
+                      <li key={point}>{point}</li>
+                    ))}
+                  </ul>
+                </div>
+              </li>
+            </ol>
+          </div>
+        </section>
+
+        <section id="expertise">
+          <div className="section-grid container">
+            <h2 className="section-title">{text.sections.expertise}</h2>
+            <div className="skill-groups">
+              <div className="skill-group">
+                <h3>{text.programming}</h3>
+                <p>C++ / C# / TypeScript / Python / Java / Kotlin / PHP</p>
+              </div>
+              <div className="skill-group">
+                <h3>{text.gameTechnology}</h3>
+                <p>Unreal Engine / Unity / STRIX / Blender</p>
+              </div>
+              <div className="skill-group">
+                <h3>{text.platforms}</h3>
+                <p>PlayStation 5 / Nintendo Switch 2 / Windows / macOS / Linux / Steam</p>
+              </div>
+              <div className="skill-group">
+                <h3>{text.applications}</h3>
+                <p>
+                  Django / React / React Native / GraphQL / Node.js / Spring Boot
+                </p>
+              </div>
+              <div className="skill-group">
+                <h3>{text.delivery}</h3>
+                <p>Unit & Integration Testing / CI/CD / Git / SonarQube / Technical Documentation</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="education">
+          <div className="section-grid container">
+            <h2 className="section-title">{text.sections.education}</h2>
+            <div className="education-list">
+              <div className="education-row">
+                <div>
+                  <h3>{text.naganumaSchool}</h3>
+                  <p>{text.naganumaCourse}</p>
+                </div>
+                <span className="education-year">{text.naganumaDates}</span>
+              </div>
+              <div className="education-row">
+                <div>
+                  <h3>SUNY Plattsburgh</h3>
+                  <p>{text.degree}</p>
+                </div>
+                <span className="education-year">{text.educationDates}</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="contact">
+          <div className="section-grid container">
+            <h2 className="section-title">{text.sections.contact}</h2>
+            <div className="contact-panel">
+              <div>
+                <h3>{text.contactTitle}</h3>
+                <p>{text.contactBody}</p>
+              </div>
+              <div className="contact-actions">
+                <a
+                  className="primary-link"
+                  href="mailto:michaelgatesdev@gmail.com"
+                >
+                  Email
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/michaelgatesdev/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  LinkedIn
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
-      <footer className="bg-gray-100 p-10 text-center">
-        <p className='mb-4'>
-          &copy; {new Date().getFullYear()} Michael Gates
-        </p>
 
-        <p>Powered by React</p>
+      <footer>
+        <div className="footer-inner container">
+          <p>&copy; {new Date().getFullYear()} Michael Gates</p>
+          <p>{text.location}</p>
+        </div>
       </footer>
     </div>
   );
