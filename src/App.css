@@ -481,6 +481,11 @@ main > section:not(.hero) {
   color: var(--muted);
 }
 
+.education-row .education-awards {
+  margin-top: 0.6rem;
+  font-size: 0.82rem;
+}
+
 .education-year {
   flex: none;
 }

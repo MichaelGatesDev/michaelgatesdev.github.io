@@ -22,11 +22,11 @@ const copy = {
     switchToDark: "Switch to dark mode",
     switchToLight: "Switch to light mode",
     skip: "Skip to content",
-    eyebrow: "Game & Full-Stack Engineer / Tokyo, Japan",
-    headline: "Online game systems for console and PC.",
+    eyebrow: "Unreal Engine & Game Engineer / Tokyo, Japan",
+    headline: "Unreal Engine frameworks and online game systems for console and PC.",
     introduction:
-      "Software engineer with 6+ years of experience building networking technology, online services, and cross-platform applications.",
-    languages: "English (native) / Japanese (JLPT N2)",
+      "Software engineer specializing in Unreal Engine and game technology, with 6+ years across game frameworks, online services, backend, web, and mobile.",
+    languages: "English (native) / Japanese (professional, JLPT N2)",
     sections: {
       gameDevelopment: "Game Development",
       mobileApps: "Mobile Apps",
@@ -37,19 +37,19 @@ const copy = {
     },
     focus: [
       {
-        title: "Networking & Services",
+        title: "Unreal Engine Frameworks",
         description:
-          "Game SDKs, web servers, and backend services built for production networking.",
+          "Reusable Unreal Engine 5 plugins and game frameworks in C++ for Nintendo Switch 2, PlayStation 5, and PC.",
       },
       {
         title: "Platform Integration",
         description:
-          "Online service integration for PlayStation Network and Steam across console and desktop targets.",
+          "PlayStation Network and Steam online services, plus platform-specific debugging on Nintendo Switch 2 and PlayStation 5.",
       },
       {
-        title: "Production Quality",
+        title: "Game Servers",
         description:
-          "Automated testing, CI/CD, security remediation, and maintainable technical documentation.",
+          "Game servers and RESTful APIs built with Kotlin and Spring Boot, backed by unit and integration tests.",
       },
     ],
     chariChizu: {
@@ -69,45 +69,56 @@ const copy = {
         "Chari Chizu map showing a prohibited bicycle parking area in Arakawa City",
     },
     current: "Jun 2024 - Present",
-    softGearRole: "Full-stack Developer / Tokyo",
+    softGearRole: "Software Engineer / Tokyo (Hybrid)",
     softGearPoints: [
-      "Develop game networking SDKs, web servers, and services using the STRIX networking framework.",
-      "Integrate online services including PlayStation Network and Steam.",
-      "Maintain automated tests and bilingual English-Japanese technical documentation.",
+      "Developed a reusable game framework as an Unreal Engine 5 plugin supporting Nintendo Switch 2, PlayStation 5, and PC.",
+      "Integrated platform online services, including PlayStation Network and Steam, into the framework.",
+      "Troubleshot and debugged platform-specific issues on Nintendo Switch 2 and PlayStation 5.",
+      "Built an Unreal Engine test client for testing game features and backend services.",
+      "Designed and built game servers and backend services, including RESTful APIs, with Kotlin and Spring Boot.",
+      "Wrote and maintained unit and integration tests for clients and servers.",
+      "Wrote and translated technical documentation between English and Japanese in Confluence.",
     ],
     technergeticsDates: "Jul 2020 - Sep 2023",
+    technergeticsLocation: "Utica, NY",
     technergeticsRoles: [
       {
-        title: "Associate Full-stack Developer",
+        title: "Associate Full Stack Software Engineer",
         dates: "May 2022 - Sep 2023",
         points: [
-          "Built cross-platform products with React Native, Kotlin, TypeScript, and GraphQL.",
-          "Led technical delivery and introduced CI/CD with Jest, JUnit, and SonarQube.",
+          "Served as team lead and engineering lead across multiple projects.",
+          "Developed cross-platform iOS and Android apps with React Native (Expo) and native Kotlin.",
+          "Implemented CI/CD pipelines for unit testing (Jest, JUnit) and static code analysis (SonarQube).",
         ],
       },
       {
-        title: "Junior Full-stack Developer",
+        title: "Junior Full Stack Software Engineer",
         dates: "Jul 2020 - May 2022",
         points: [
-          "Developed a large-scale Django application across its backend and frontend.",
-          "Raised test coverage above 80% and resolved security vulnerabilities for certification.",
+          "Developed backend and frontend features for a large-scale Django web application.",
+          "Led development of key new features and presented them to stakeholders.",
+          "Helped the project achieve CTF certification by raising test coverage above 80% and remediating CVEs.",
         ],
       },
     ],
-    super8Dates: "Oct 2019 - Jan 2022",
-    super8Role: "Full-stack Developer / Remote",
+    super8Dates: "Oct 2019 - Aug 2022",
+    super8Role: "Full Stack Developer / Plattsburgh, NY",
     super8Points: [
-      "Designed and delivered a customized Omeka platform from requirements through deployment.",
+      "Owned end-to-end development of an Omeka-based PHP website, from design through testing and deployment.",
+      "Designed custom themes and wrote a custom plugin extending Omeka's core functionality.",
     ],
     programming: "Programming",
     gameTechnology: "Game Technology",
     platforms: "Platforms",
-    applications: "Backend & Applications",
-    delivery: "Delivery",
-    degree: "Bachelor of Science in Information Technology",
+    applications: "Backend & Web",
+    tools: "Tools",
+    ai: "AI",
+    degree: "B.S. in Information Technology",
+    awards:
+      "Outstanding Graduate in Information Technology / Presidential Award for Student Excellence / Student Staff Award",
     educationDates: "Aug 2016 - May 2020",
     naganumaSchool: "The Naganuma School, Tokyo School of Japanese Language",
-    naganumaCourse: "Communication Japanese Course",
+    naganumaCourse: "Japanese Language Program",
     naganumaDates: "Oct 2023 - Jun 2024",
     contactTitle: "Professional inquiries",
     contactBody:
@@ -127,11 +138,11 @@ const copy = {
     switchToDark: "ダークモードに切り替える",
     switchToLight: "ライトモードに切り替える",
     skip: "本文へ移動",
-    eyebrow: "ゲーム・フルスタックエンジニア / 東京",
-    headline: "コンソール・PC向けオンラインゲームシステム。",
+    eyebrow: "Unreal Engine・ゲームエンジニア / 東京",
+    headline: "コンソール・PC向けのUnreal Engineフレームワークとオンラインゲームシステム。",
     introduction:
-      "ネットワーク技術、オンラインサービス、クロスプラットフォームアプリケーションの開発に6年以上携わるソフトウェアエンジニアです。",
-    languages: "英語（ネイティブ）/ 日本語（JLPT N2）",
+      "Unreal Engineを中心としたゲーム技術を専門とするソフトウェアエンジニアです。ゲームフレームワーク、オンラインサービス、バックエンド、Web、モバイル開発に6年以上携わっています。",
+    languages: "英語（ネイティブ）/ 日本語（ビジネスレベル、JLPT N2）",
     sections: {
       gameDevelopment: "ゲーム開発",
       mobileApps: "モバイルアプリ",
@@ -142,19 +153,19 @@ const copy = {
     },
     focus: [
       {
-        title: "ネットワーク・サービス",
+        title: "Unreal Engineフレームワーク",
         description:
-          "本番環境向けのゲームSDK、Webサーバー、バックエンドサービスを開発。",
+          "Nintendo Switch 2・PlayStation 5・PC対応の再利用可能なUnreal Engine 5プラグイン・ゲームフレームワークをC++で開発。",
       },
       {
         title: "プラットフォーム連携",
         description:
-          "コンソール・デスクトップ向けのPlayStation Network、Steamオンラインサービス連携。",
+          "PlayStation Network・Steamのオンラインサービス連携と、Nintendo Switch 2・PlayStation 5での不具合調査・デバッグ。",
       },
       {
-        title: "品質・運用",
+        title: "ゲームサーバー",
         description:
-          "自動テスト、CI/CD、脆弱性対応、保守性の高い技術ドキュメントを重視。",
+          "KotlinとSpring BootによるゲームサーバーとRESTful APIを、単体テスト・結合テストとともに開発。",
       },
     ],
     chariChizu: {
@@ -172,45 +183,56 @@ const copy = {
       bannedAlt: "荒川区の駐輪禁止区域を表示するChari Chizuの地図",
     },
     current: "2024年6月 - 現在",
-    softGearRole: "フルスタック開発者 / 東京",
+    softGearRole: "ソフトウェアエンジニア / 東京（ハイブリッド）",
     softGearPoints: [
-      "STRIXネットワークフレームワークを用いたゲームSDK、Webサーバー、サービスを開発。",
-      "PlayStation Network、Steamなどのオンラインサービス連携を実装。",
-      "自動テストおよび日英の技術ドキュメントを作成・保守。",
+      "Unreal Engine 5プラグインとして、Nintendo Switch 2・PlayStation 5・PCに対応した再利用可能なゲームフレームワークを開発。",
+      "PlayStation Network、Steamなどのプラットフォームオンラインサービスをフレームワークに統合。",
+      "Nintendo Switch 2およびPlayStation 5におけるプラットフォーム固有の不具合の調査・デバッグ。",
+      "ゲーム機能およびバックエンドサービスの検証用Unreal Engineテストクライアントを開発。",
+      "KotlinとSpring Bootを用いて、RESTful APIを含むゲームサーバーおよびバックエンドサービスを設計・開発。",
+      "クライアントおよびサーバーの単体テスト・結合テストの作成・保守。",
+      "Confluenceにて技術ドキュメントを作成し、英語・日本語間の翻訳を担当。",
     ],
     technergeticsDates: "2020年7月 - 2023年9月",
+    technergeticsLocation: "米国ニューヨーク州ユーティカ",
     technergeticsRoles: [
       {
-        title: "アソシエイト・フルスタック開発者",
+        title: "アソシエイト フルスタックソフトウェアエンジニア",
         dates: "2022年5月 - 2023年9月",
         points: [
-          "React Native、Kotlin、TypeScript、GraphQLを用いたクロスプラットフォーム開発。",
-          "技術リードとして、Jest、JUnit、SonarQubeを用いたCI/CDを導入。",
+          "複数プロジェクトでチームリーダー兼エンジニアリングリードを担当。",
+          "React Native（Expo）およびネイティブKotlinを用いて、iOS・Android向けモバイルアプリを開発。",
+          "単体テスト（Jest、JUnit）および静的コード解析（SonarQube）のCI/CDパイプラインを構築。",
         ],
       },
       {
-        title: "ジュニア・フルスタック開発者",
+        title: "ジュニア フルスタックソフトウェアエンジニア",
         dates: "2020年7月 - 2022年5月",
         points: [
-          "大規模Djangoアプリケーションのバックエンド・フロントエンドを開発。",
-          "テストカバレッジ80%以上を達成し、認証取得に向けた脆弱性対応を実施。",
+          "大規模なDjango Webアプリケーションのバックエンドおよびフロントエンド開発を担当。",
+          "主要な新機能の開発を主導し、ステークホルダー向けにプレゼンテーションを実施。",
+          "テストカバレッジを80%以上に向上させ、CVEに対応することで、プロジェクトのCTF認定取得に貢献。",
         ],
       },
     ],
-    super8Dates: "2019年10月 - 2022年1月",
-    super8Role: "フルスタック開発者 / リモート",
+    super8Dates: "2019年10月 - 2022年8月",
+    super8Role: "フルスタック開発者 / 米国ニューヨーク州プラッツバーグ",
     super8Points: [
-      "Omekaをベースにしたカスタムプラットフォームを要件定義からデプロイまで一貫して担当。",
+      "OmekaベースのPHP Webサイトについて、設計からテスト・デプロイまで一貫して担当。",
+      "カスタムテーマを設計・実装し、Omekaのコア機能を拡張するカスタムプラグインを開発。",
     ],
-    programming: "プログラミング",
+    programming: "プログラミング言語",
     gameTechnology: "ゲーム技術",
     platforms: "プラットフォーム",
-    applications: "バックエンド・アプリケーション",
-    delivery: "開発・運用",
-    degree: "情報技術学 理学士",
+    applications: "バックエンド・Web",
+    tools: "ツール",
+    ai: "AI",
+    degree: "情報技術専攻（理学士）",
+    awards:
+      "情報技術分野 優秀卒業生賞 / 学長賞（Presidential Award for Student Excellence）/ 学生スタッフ賞",
     educationDates: "2016年8月 - 2020年5月",
     naganumaSchool: "長沼スクール 東京日本語学校",
-    naganumaCourse: "コミュニケーション日本語コース",
+    naganumaCourse: "日本語課程",
     naganumaDates: "2023年10月 - 2024年6月",
     contactTitle: "仕事に関するお問い合わせ",
     contactBody:
@@ -226,6 +248,7 @@ function App() {
   );
   const locale: Locale = language.languageCode.startsWith("ja") ? "ja" : "en";
   const text = copy[locale];
+  const resumeUrl = `${process.env.PUBLIC_URL}/resume/resume-${locale}.pdf`;
 
   useEffect(() => {
     document.title =
@@ -237,8 +260,8 @@ function App() {
     description?.setAttribute(
       "content",
       locale === "ja"
-        ? "東京を拠点にゲーム、プラットフォーム、フルスタックプロダクトを開発するバイリンガルソフトウェアエンジニア、Michael Gatesのポートフォリオ。"
-        : "Michael Gates is a bilingual software engineer in Tokyo building games, platforms, and full-stack products.",
+        ? "東京を拠点に、Unreal Engineを中心としたゲームフレームワークやオンラインゲームシステムを開発するバイリンガルソフトウェアエンジニア、Michael Gatesのポートフォリオ。"
+        : "Michael Gates is a bilingual software engineer in Tokyo specializing in Unreal Engine game frameworks and online game systems.",
     );
   }, [locale]);
 
@@ -277,7 +300,7 @@ function App() {
               <a href="#expertise">{text.nav.expertise}</a>
               <a href="#contact">{text.nav.contact}</a>
               <a
-                href="https://drive.google.com/file/d/1f26YGZ4yx7CM3brDVKh5tgCGEidUaGMv/view?usp=sharing"
+                href={resumeUrl}
                 target="_blank"
                 rel="noreferrer"
               >
@@ -347,7 +370,7 @@ function App() {
                 GitHub
               </a>
               <a
-                href="https://drive.google.com/file/d/1f26YGZ4yx7CM3brDVKh5tgCGEidUaGMv/view?usp=sharing"
+                href={resumeUrl}
                 target="_blank"
                 rel="noreferrer"
               >
@@ -430,6 +453,7 @@ function App() {
                 <div className="timeline-date">{text.technergeticsDates}</div>
                 <div>
                   <h3>Technergetics</h3>
+                  <p className="role">{text.technergeticsLocation}</p>
                   <div className="company-roles">
                     {text.technergeticsRoles.map((companyRole) => (
                       <div className="company-role" key={companyRole.title}>
@@ -468,26 +492,37 @@ function App() {
             <h2 className="section-title">{text.sections.expertise}</h2>
             <div className="skill-groups">
               <div className="skill-group">
-                <h3>{text.programming}</h3>
-                <p>C++ / C# / TypeScript / Python / Java / Kotlin / PHP</p>
-              </div>
-              <div className="skill-group">
                 <h3>{text.gameTechnology}</h3>
-                <p>Unreal Engine / Unity / STRIX / Blender</p>
+                <p>Unreal Engine 5 (C++, plugin development) / Unity / Blender</p>
               </div>
               <div className="skill-group">
                 <h3>{text.platforms}</h3>
-                <p>PlayStation 5 / Nintendo Switch 2 / Windows / macOS / Linux / Steam</p>
+                <p>
+                  Nintendo Switch 2 / PlayStation 5 / PC / PlayStation Network /
+                  Steam
+                </p>
+              </div>
+              <div className="skill-group">
+                <h3>{text.programming}</h3>
+                <p>C++ / C# / Kotlin / Java / TypeScript / Python / Rust / PHP</p>
               </div>
               <div className="skill-group">
                 <h3>{text.applications}</h3>
                 <p>
-                  Django / React / React Native / GraphQL / Node.js / Spring Boot
+                  Spring Boot / Django / GraphQL / React / React Native (Expo) /
+                  Vite
                 </p>
               </div>
               <div className="skill-group">
-                <h3>{text.delivery}</h3>
-                <p>Unit & Integration Testing / CI/CD / Git / SonarQube / Technical Documentation</p>
+                <h3>{text.tools}</h3>
+                <p>
+                  Git / CI/CD / Jest / JUnit / SonarQube / Confluence / Jira /
+                  Redmine / YouTrack
+                </p>
+              </div>
+              <div className="skill-group">
+                <h3>{text.ai}</h3>
+                <p>Claude / Codex</p>
               </div>
             </div>
           </div>
@@ -508,6 +543,7 @@ function App() {
                 <div>
                   <h3>SUNY Plattsburgh</h3>
                   <p>{text.degree}</p>
+                  <p className="education-awards">{text.awards}</p>
                 </div>
                 <span className="education-year">{text.educationDates}</span>
               </div>

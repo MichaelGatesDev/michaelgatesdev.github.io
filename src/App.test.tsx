@@ -16,7 +16,7 @@ test("renders the portfolio and switches languages and themes", () => {
 
   expect(
     screen.getByRole("heading", {
-      name: "Online game systems for console and PC.",
+      name: "Unreal Engine frameworks and online game systems for console and PC.",
     }),
   ).toBeInTheDocument();
   expect(
@@ -34,12 +34,12 @@ test("renders the portfolio and switches languages and themes", () => {
     }),
   ).toHaveAttribute("src", expect.stringContaining("chari-chizu-parking.jpg"));
   expect(
-    screen.getByRole("heading", { name: "Associate Full-stack Developer" }),
+    screen.getByRole("heading", { name: "Associate Full Stack Software Engineer" }),
   ).toBeInTheDocument();
-  expect(screen.getByText("Communication Japanese Course")).toBeInTheDocument();
+  expect(screen.getByText("Japanese Language Program")).toBeInTheDocument();
   expect(screen.getAllByRole("link", { name: "Resume" })[0]).toHaveAttribute(
     "href",
-    expect.stringContaining("drive.google.com"),
+    expect.stringContaining("/resume/resume-en.pdf"),
   );
 
   fireEvent.click(screen.getByRole("button", { name: "Switch to dark mode" }));
@@ -50,7 +50,7 @@ test("renders the portfolio and switches languages and themes", () => {
 
   expect(
     screen.getByRole("heading", {
-      name: "コンソール・PC向けオンラインゲームシステム。",
+      name: "コンソール・PC向けのUnreal Engineフレームワークとオンラインゲームシステム。",
     }),
   ).toBeInTheDocument();
   expect(
